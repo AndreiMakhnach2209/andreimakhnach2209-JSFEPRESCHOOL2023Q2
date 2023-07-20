@@ -1,0 +1,63 @@
+/*используемые шрифты*/
+@font-face {
+ font-family: Forum;
+  src: url("../assets/fonts/Forum-Regular.ttf");
+}
+@font-face {
+    font-family: Inter;
+    src: url("../assets/fonts/Inter-Regular.ttf");
+}
+/*позиционирование*/
+.header,
+.nav-list,
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*блочная модель (размеры, отступы)*/
+.body {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    width: 1440px;
+    height: 90px;
+    margin: 0;        
+}
+.header-title {
+    margin: 20px;
+}
+.nav-item {
+    margin: 15px;
+}
+.profile-icon {
+    margin: 20px;
+}
+/*типографика (свойства шрифта)*/
+.header-title {
+    color: #FFF;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; 
+    letter-spacing: 0.6px;
+}
+.nav-link {
+    text-decoration: none;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+}
+.nav-list {
+    list-style: none;
+}
+/*оформление (цвет фона, тень)*/
+.header {
+    background: #0C0C0E;
+}
+/*анимация*/
