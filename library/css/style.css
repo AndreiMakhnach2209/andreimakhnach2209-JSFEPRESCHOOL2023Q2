@@ -30,26 +30,45 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    position: relative;
-    bottom: 80px;
+}
+.about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.about-carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.carousel-button-box,
+.carousel-button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*блочная модель (размеры, отступы)*/
 .body {
+    min-width: 1440px;
     margin: 0;
     padding: 0;
    }
 .header-container {
+    min-width: 1440px;
     width: 100vw;
 }
 .header {
-    width: 1440px;
+    min-width: 1440px;
     height: 90px;
-    margin: 0;        
-   }
+    margin: 0; 
+}
 .header-title {
     margin: 20px;
    }
+.nav {
+    margin: 0 5px;
+}
 .nav-item {
     margin: 15px;
    }
@@ -60,6 +79,7 @@
     width: 100vw;
     height: 600px;
     margin: 0;
+    min-width: 1440px;
 }
 .overlay {
     width: 1440px;
@@ -72,6 +92,49 @@
     height: 220px;
     padding: 35px 40px;
     margin: 0;
+    position: relative;
+    bottom: 80px;
+}
+.about{
+    min-width: 1440px;
+    height: 837px;
+}
+.title-line {
+    width: 50px;
+    height: 1px;
+}
+.title-section,
+.about-text {
+    margin: 0;
+}
+.title-container {
+    height: 40px;
+    margin: 20px;
+}
+.about-box {
+    height: 40px;
+    margin-top: 40px;
+}
+.about-carousel {
+    width: 1400px;
+    height: 560px;
+    margin: 20px;
+    overflow: hidden;
+}
+.carousel-item {
+    width: 450px;
+}
+.carousel-button-box {
+        margin: 15px;
+}
+.carousel-button-link {
+    width: 26px;
+    height: 26px;
+}
+.carousel-button,
+.carousel-button-act {
+    width: 14px;
+    height: 14px;    
 }
 
 /*типографика (свойства шрифта)*/
@@ -103,12 +166,33 @@
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
-    line-height: 50px; /* 125% */
+    line-height: 50px; 
     letter-spacing: 3px;
     text-transform: uppercase;
 }
+.title-section {
+    color: #0C0C0E;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 100% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.about-text {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+}
+
 /*оформление (цвет фона, тень)*/
-.header-container {
+.header-container,
+.title-line {
     background: #0C0C0E;
    }
 .welcome {
@@ -120,5 +204,14 @@
 .welcome-box {
     background: #0C0C0E;
 }
-
+.carousel-button {
+    border-radius: 7px;
+    border: 1px solid #0C0C0E;
+    background: #0C0C0E;
+}
+.carousel-button-act {
+    border-radius: 7px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+}
 /*анимация*/
