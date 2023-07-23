@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Brooklyn Public Library</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- <link rel="stylesheet" href="./css/user.css"> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./images/favicon.ico">
+</head>
+<body class="body">
+    <div class="header-container">
+    <header class="header">
+        <h1 class="header-title">Brooklyn Public Library</h1>
+        <div class="header-menu">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
+                    <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                    <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
+                </ul>
+            </nav>  
+            <a href="#profile-link" class="profile-link"><img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon"></a>
+        </div>       
+    </header>
+    </div>
+    <main class="main">
+        <section class="welcome">
+            <div class="welcome-container">
+                <div class="overlay"></div>                
+                    <div class="welcome-box">
+                        <h3 class="welcome-text">Welcome<br>to the Brooklyn<br>Library</h3>
+                    </div>                
+            </div>
+        </section>
+        <section class="about" id="about">
+            <div class="title-container">
+                <h2 class="title-section">About</h2>
+            </div>
+            <div class="title-line"></div>
+            <div class="about-box">
+                <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </span>
+            </div>
+            <div class="about-carousel">
+                <img class="carousel-item" src="./pictures/Carousel_images/image1.jpg" alt="image1">
+                <img class="carousel-item" src="./pictures/Carousel_images/image2.jpg" alt="image2">
+                <img class="carousel-item" src="./pictures/Carousel_images/image3.jpg" alt="image3">
+            </div>
+            <div class="carousel-button-box">
+                <!-- <img src="./images/carousel_button.svg" alt="carousel_button" usemap="#carousel">
+                <map name="carousel">
+                    <area shape="rect" coords="0 0 26 26" href="./pictures/Carousel_images/image1.jpg">
+                    <area shape="rect" coords="26 0 52 26" href="./pictures/Carousel_images/image2.jpg">
+                    <area shape="rect" coords="52 0 78 26" href="./pictures/Carousel_images/image3.jpg">
+                </map> -->
+                <a class="carousel-button-link" href="./pictures/Carousel_images/image1.jpg">
+                    <span class="carousel-button-act"></span>
+                </a>
+                <a class="carousel-button-link" href="./pictures/Carousel_images/image2.jpg">
+                    <span class="carousel-button"></span>
+                </a>
+                <a class="carousel-button-link" href="./pictures/Carousel_images/image3.jpg">
+                    <span class="carousel-button"></span>
+                </a>
+            </div>
+        </section>
+        <section class="favorites" id="favorites">
+            <div class="title-container">
+                <h2 class="title-section">Favorites</h2>
+            </div>
+            <div class="title-line"></div>
+            <div class="season-box">
+                <h3 class="season-title">Pick favorites of season</h3>
+                <div class="season-wrap">
+                    <div class="input-wrapper">
+                        <input class="radio-button" id="winter" type="radio" name="season" checked>
+                        <label class="season-label" for="winter">Winter</label>
+                    </div>
+                    <div class="input-wrapper">
+
+                        <input class="radio-button" id="spring" type="radio" name="season">
+                        <label class="season-label" for="spring">Spring</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input class="radio-button" id="summer" type="radio" name="season">
+                        <label class="season-label" for="summer">Summer</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input class="radio-button" id="autumn" type="radio" name="season">
+                        <label class="season-label" for="autumn">Autumn</label>
+                    </div>
+                </div>
+            </div>
+            <div class="favorites-list">
+                <div class="favorites-item">
+                    <div class="favorites-desc">
+                        <div class="staff-picks">
+                            <h3 class="staff-picks-title">Staff Picks</h3>
+                            <div class="staff-picks-line"></div>
+                        </div>
+                        <div class="book-title-wrap">
+                            <h4 class="book-title">The Book Eaters</h4>
+                            <span class="book-autor">By Sunyi Dean</span>
+                        </div>
+                        <div class="book-desc-wrap">
+                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                        </div>
+                        <div class="button-buy-wrap">
+                            <button class="button-buy" type="button">Buy</button>
+                        </div>
+                    </div>
+                    <div class="book-image"></div>
+                </div>
+                <div class="favorites-item">
+                    <div class="favorites-desc">
+                        <div class="staff-picks">
+                            <h3 class="staff-picks-title">Staff Picks</h3>
+                            <div class="staff-picks-line"></div>
+                        </div>
+                        <div class="book-title-wrap">
+                            <h4 class="book-title">The Book Eaters</h4>
+                            <span class="book-autor">By Sunyi Dean</span>
+                        </div>
+                        <div class="book-desc-wrap">
+                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                        </div>
+                        <div class="button-buy-wrap">
+                            <button class="button-buy" type="button">Buy</button>
+                        </div>
+                    </div>
+                    <div class="book-image"></div>
+                </div>
+                <div class="favorites-item">
+                    <div class="favorites-desc">
+                        <div class="staff-picks">
+                            <h3 class="staff-picks-title">Staff Picks</h3>
+                            <div class="staff-picks-line"></div>
+                        </div>
+                        <div class="book-title-wrap">
+                            <h4 class="book-title">The Book Eaters</h4>
+                            <span class="book-autor">By Sunyi Dean</span>
+                        </div>
+                        <div class="book-desc-wrap">
+                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                        </div>
+                        <div class="button-buy-wrap">
+                            <button class="button-buy" type="button">Buy</button>
+                        </div>
+                    </div>
+                    <div class="book-image"></div>
+                </div>
+                <div class="favorites-item">
+                    <div class="favorites-desc">
+                        <div class="staff-picks">
+                            <h3 class="staff-picks-title">Staff Picks</h3>
+                            <div class="staff-picks-line"></div>
+                        </div>
+                        <div class="book-title-wrap">
+                            <h4 class="book-title">The Book Eaters</h4>
+                            <span class="book-autor">By Sunyi Dean</span>
+                        </div>
+                        <div class="book-desc-wrap">
+                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                        </div>
+                        <div class="button-buy-wrap">
+                            <button class="button-buy" type="button">Buy</button>
+                        </div>
+                    </div>
+                    <div class="book-image"></div>
+                </div>
+            </div>
+        </section>
+    </main>    
+</body>
+</html>

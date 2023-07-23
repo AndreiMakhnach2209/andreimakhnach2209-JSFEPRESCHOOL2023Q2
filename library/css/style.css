@@ -1,0 +1,415 @@
+/*используемые шрифты*/
+@font-face {
+    font-family: Forum;
+    src: url("../assets/fonts/Forum-Regular.ttf");
+   }
+@font-face {
+    font-family: Inter;
+    src: url("../assets/fonts/Inter-Regular.ttf");
+   }
+/*позиционирование*/
+.header,
+.nav-list,
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+.welcome {
+    display: flex;
+    justify-content: center;
+}
+.header-container {
+    display: flex;
+    justify-content: center;
+}
+.welcome-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about,
+.favorites {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.about-carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.carousel-button-box,
+.carousel-button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.season-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+.season-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+.favorites-list {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-flow: wrap;
+    overflow: hidden;
+}
+.favorites-item {
+    display: flex;
+    position: relative;
+}
+.favorites-desc {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: start;
+    position: relative;
+}
+.book-image {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+.staff-picks {
+    display: flex;
+    flex-direction: column;
+}
+.button-buy {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+
+}
+/*блочная модель (размеры, отступы)*/
+.body {
+    min-width: 1440px;
+    margin: 0;
+    padding: 0;
+   }
+.header-container {
+    min-width: 1440px;
+    width: 100vw;
+}
+.header {
+    min-width: 1440px;
+    height: 90px;
+    margin: 0; 
+}
+.header-title {
+    margin: 20px;
+   }
+.nav {
+    margin: 0 5px;
+}
+.nav-item {
+    margin: 15px;
+   }
+.profile-icon {
+    margin: 20px;
+   }
+.welcome {
+    width: 100vw;
+    height: 600px;
+    margin: 0;
+    min-width: 1440px;
+}
+.overlay {
+    width: 1440px;
+    height: 300px;
+    flex-shrink: 0;
+}
+.welcome-box{
+    box-sizing: border-box;
+    width: 600px;
+    height: 220px;
+    padding: 35px 40px;
+    margin: 0;
+    position: relative;
+    bottom: 80px;
+}
+.about{
+    min-width: 1440px;
+    height: 837px;
+}
+.favorites {
+    box-sizing: border-box;
+    min-width: 1440px;
+    height: 1439px;
+    padding: 0 20px;
+}
+.title-line {
+    width: 50px;
+    height: 1px;
+}
+.title-section,
+.about-text {
+    margin: 0;
+}
+.title-container {
+    height: 40px;
+    margin: 20px;
+}
+.about-box {
+    height: 40px;
+    margin-top: 40px;
+}
+.about-carousel {
+    width: 1400px;
+    height: 560px;
+    margin: 20px;
+    overflow: hidden;
+}
+.carousel-item {
+    width: 450px;
+}
+.carousel-button-box {
+        margin: 15px;
+}
+.carousel-button-link {
+    width: 26px;
+    height: 26px;
+}
+.carousel-button,
+.carousel-button-act {
+    width: 14px;
+    height: 14px;    
+}
+.season-box {  
+    margin: 40px 0;
+    width: 100%;
+    max-width: 1400px;
+    height: 88px;   
+}
+.season-title {
+    width: 234px;
+    margin: 0;
+}
+.season-wrap {
+    width: 700px;
+    height: 24px;
+}
+.radio-button{
+    margin: 0 20px 0 0;
+    width: 16px;
+    height: 16px;
+}
+.input-wrapper {
+    margin: 0;
+}
+.favorites-list {
+    width: 1400px;
+    height: 1150px;
+    margin: 0;
+}
+.favorites-item {
+    width: 590px;
+    height: 555px;
+}
+.favorites-desc {
+    box-sizing: border-box;
+    width: 550px;
+    height: 100%;
+    border: 1px solid #000;
+    padding: 15px 19px;
+}
+.book-image {
+    width: 200px;
+    height: 300px;
+}
+.staff-picks {
+    height: 40px;
+}
+.staff-picks-line {
+    width: 60px;
+    height: 0;
+    border: 1px solid #BB945F;
+}
+.staff-picks-title,
+.book-autor,
+.book-title,
+.book-desc {
+    margin: 0;
+}
+.book-title-wrap {
+    margin: 20px 0;
+}
+.book-desc-wrap {
+    width: 355px;
+}
+.button-buy {
+    width: 75px;
+    height: 30px;
+}
+/*типографика (свойства шрифта)*/
+.header-title {
+    color: #FFF;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; 
+    letter-spacing: 0.6px;
+   }
+.nav-link {
+    text-decoration: none;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+   }
+.nav-list {
+    list-style: none;
+   }
+.welcome-text {
+    color: #FFF;
+    text-align: center;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.title-section {
+    color: #0C0C0E;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 100% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.about-text {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+}
+.season-title {
+     color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    letter-spacing: 0.3px;   
+}
+.radio-button:checked + .season-label,
+.radio-button:hover + .season-label {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.season-label {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.staff-picks-title {
+    color: #000;
+font-family: Forum;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 2px;
+text-transform: capitalize;
+}
+.book-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.book-autor {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.book-desc {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 266.667% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.button-buy {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+/*оформление (цвет фона, тень)*/
+.header-container,
+.title-line {
+    background: #0C0C0E;
+   }
+.welcome {
+    background: url(../pictures/welcome-bacckground.jpg) lightgray 50% / cover no-repeat;
+}
+.overlay {
+    background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, #1212151a 100%);
+}
+.welcome-box {
+    background: #0C0C0E;
+}
+.carousel-button {
+    border-radius: 7px;
+    border: 1px solid #0C0C0E;
+    background: #0C0C0E;
+}
+.carousel-button-act {
+    border-radius: 7px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+}
+.radio-button {
+    accent-color: #000;
+}
+.book-image {
+    background: url(../pictures/favorites/book_eaters.jpg) lightgray 50% / cover no-repeat;
+}
+
+/*анимация*/
