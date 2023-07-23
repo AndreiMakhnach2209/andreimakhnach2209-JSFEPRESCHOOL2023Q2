@@ -7,7 +7,6 @@
     font-family: Inter;
     src: url("../assets/fonts/Inter-Regular.ttf");
    }
-
 /*позиционирование*/
 .header,
 .nav-list,
@@ -19,19 +18,18 @@
 .welcome {
     display: flex;
     justify-content: center;
-    align-items: top;
 }
 .header-container {
     display: flex;
     justify-content: center;
 }
-.welcome-box{
+.welcome-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
 }
-.about {
+.about,
+.favorites {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -47,7 +45,53 @@
     justify-content: center;
     align-items: center;
 }
+.season-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+.season-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+.favorites-list {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-flow: wrap;
+    overflow: hidden;
+}
+.favorites-item {
+    display: flex;
+    position: relative;
+}
+.favorites-desc {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: start;
+    position: relative;
+}
+.book-image {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+.staff-picks {
+    display: flex;
+    flex-direction: column;
+}
+.button-buy {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
 
+}
 /*блочная модель (размеры, отступы)*/
 .body {
     min-width: 1440px;
@@ -99,6 +143,12 @@
     min-width: 1440px;
     height: 837px;
 }
+.favorites {
+    box-sizing: border-box;
+    min-width: 1440px;
+    height: 1439px;
+    padding: 0 20px;
+}
 .title-line {
     width: 50px;
     height: 1px;
@@ -136,7 +186,72 @@
     width: 14px;
     height: 14px;    
 }
-
+.season-box {  
+    margin: 40px 0;
+    width: 100%;
+    max-width: 1400px;
+    height: 88px;   
+}
+.season-title {
+    width: 234px;
+    margin: 0;
+}
+.season-wrap {
+    width: 700px;
+    height: 24px;
+}
+.radio-button{
+    margin: 0 20px 0 0;
+    width: 16px;
+    height: 16px;
+}
+.input-wrapper {
+    margin: 0;
+}
+.favorites-list {
+    width: 1400px;
+    height: 1150px;
+    margin: 0;
+}
+.favorites-item {
+    width: 590px;
+    height: 555px;
+}
+.favorites-desc {
+    box-sizing: border-box;
+    width: 550px;
+    height: 100%;
+    border: 1px solid #000;
+    padding: 15px 19px;
+}
+.book-image {
+    width: 200px;
+    height: 300px;
+}
+.staff-picks {
+    height: 40px;
+}
+.staff-picks-line {
+    width: 60px;
+    height: 0;
+    border: 1px solid #BB945F;
+}
+.staff-picks-title,
+.book-autor,
+.book-title,
+.book-desc {
+    margin: 0;
+}
+.book-title-wrap {
+    margin: 20px 0;
+}
+.book-desc-wrap {
+    width: 355px;
+}
+.button-buy {
+    width: 75px;
+    height: 30px;
+}
 /*типографика (свойства шрифта)*/
 .header-title {
     color: #FFF;
@@ -189,7 +304,83 @@
     font-weight: 400;
     line-height: 40px;
 }
-
+.season-title {
+     color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    letter-spacing: 0.3px;   
+}
+.radio-button:checked + .season-label,
+.radio-button:hover + .season-label {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.season-label {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.staff-picks-title {
+    color: #000;
+font-family: Forum;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 2px;
+text-transform: capitalize;
+}
+.book-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.book-autor {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.book-desc {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 266.667% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.button-buy {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
 /*оформление (цвет фона, тень)*/
 .header-container,
 .title-line {
@@ -214,4 +405,11 @@
     border: 1px solid #BB945F;
     background: #BB945F;
 }
+.radio-button {
+    accent-color: #000;
+}
+.book-image {
+    background: url(../pictures/favorites/book_eaters.jpg) lightgray 50% / cover no-repeat;
+}
+
 /*анимация*/
