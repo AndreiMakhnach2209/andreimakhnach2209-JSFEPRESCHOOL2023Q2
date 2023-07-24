@@ -411,8 +411,17 @@ text-transform: capitalize;
 .radio-button {
     accent-color: #000;
 }
-.book-image {
+.favorites-item:nth-child(1) .book-image{
     background: url(../pictures/favorites/book_eaters.jpg) lightgray 50% / cover no-repeat;
+}
+.favorites-item:nth-child(2) .book-image{
+    background: url(../pictures/favorites/cackle.jpg) lightgray 50% / cover no-repeat;
+}
+.favorites-item:nth-child(3) .book-image{
+    background: url(../pictures/favorites/Dante.jpg) lightgray 50% / cover no-repeat;
+}
+.favorites-item:nth-child(4) .book-image{
+    background: url(../pictures/favorites/last_queen.jpg) lightgray 50% / cover no-repeat;
 }
 
 /*анимация*/
