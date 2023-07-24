@@ -271,6 +271,11 @@
     font-weight: 400;
     line-height: 50px;
    }
+   .nav-link:hover {
+    cursor: pointer;
+    color: #BB945F;
+    font-weight: 700;
+   }
 .nav-list {
     list-style: none;
    }
@@ -314,14 +319,12 @@
     line-height: normal; 
     letter-spacing: 0.3px;   
 }
-.radio-button:checked + .season-label,
-.radio-button:hover + .season-label {
+.radio-button:checked + .season-label {
     color: #000;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
+}
+.radio-button:hover + .season-label {
+    color: #BB945F;
 }
 .season-label {
     color: #000;
@@ -396,12 +399,12 @@ text-transform: capitalize;
     background: #0C0C0E;
 }
 .carousel-button {
-    border-radius: 7px;
+    border-radius: 50%;
     border: 1px solid #0C0C0E;
     background: #0C0C0E;
 }
 .carousel-button-act {
-    border-radius: 7px;
+    border-radius: 50%;
     border: 1px solid #BB945F;
     background: #BB945F;
 }
@@ -413,3 +416,14 @@ text-transform: capitalize;
 }
 
 /*анимация*/
+.profile-icon {
+    filter: grayscale(1);
+    filter: brightness(3);
+}
+.profile-icon:hover {
+    filter: none;
+}
+.carousel-button:hover {
+    width: 18px;
+    height: 18px;
+}
