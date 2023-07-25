@@ -41,7 +41,8 @@
 }
 .about,
 .favorites,
-.coffee-shop {
+.coffee-shop,
+.contacts {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -128,6 +129,17 @@
     position: unset;
     align-self: self-end;    
 }
+.contacts-box {
+    display: flex;
+    justify-content: space-between;
+}
+.mail-list,
+.phone-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 /*блочная модель (размеры, отступы)*/
 .body {
     min-width: 1440px;
@@ -275,13 +287,11 @@
     min-width: 100%;
     height: 520px;
 }
-
 .menu-list-title {
     position: absolute;
     top: 0;
     left: 0;
 }
-
 .menu-item {
     min-width: 438px;
     position: relative;
@@ -296,7 +306,6 @@
     position: absolute;
     right: 21px;
 }
-
 .staff-picks-title,
 .book-autor,
 .book-title,
@@ -324,7 +333,32 @@
     height: 120px;
     margin: 40px 0;
 }
-
+.contacts {
+    height: 575px;
+    padding: 0 20px 40px 20px;
+}
+.contacts-box {
+    min-width: 100%;
+    margin-top: 40px;
+}
+.phone-header {
+    height: 40px;
+    margin-bottom: 30px;
+}
+.phone-item {
+    height: 40px;
+    margin: 10px 0;
+}
+.mail-list {
+    margin-top: 30px;
+}
+.mail-item {
+    margin-bottom: 20px;
+}
+.map-container {
+    width: 696px;
+    height: 414px;
+}
 /*типографика (свойства шрифта)*/
 .header-title {
     color: #FFF;
@@ -495,6 +529,26 @@ text-transform: capitalize;
     line-height: 40px;
     letter-spacing: 2px;
 }
+.contacts-list {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; 
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.contacts-list a {
+    text-decoration: none;
+    color: #000;
+}
+.phone-header,
+.mail-list a {
+    font-weight: 700;
+    letter-spacing: 2.4px;
+}
 
 /*оформление (цвет фона, тень)*/
 .header-container,
@@ -535,6 +589,9 @@ text-transform: capitalize;
 .favorites-item:nth-child(4) .book-image{
     background: url(../pictures/favorites/last_queen.jpg) lightgray 50% / cover no-repeat;
 }
+.map-container {
+    background: url(../pictures/Map/map_library.png) lightgray 50% / cover no-repeat;
+}
 
 /*анимация*/
 html {
@@ -544,7 +601,7 @@ html {
 .radio-button
 .carousel-button-link
 .profile-link{
-    transition: .3s;
+    transition: 0.5s;
 }
 
 .profile-icon {
