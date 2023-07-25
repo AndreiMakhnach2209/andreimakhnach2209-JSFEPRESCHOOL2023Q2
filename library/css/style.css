@@ -7,7 +7,18 @@
     font-family: Inter;
     src: url("../assets/fonts/Inter-Regular.ttf");
    }
+
 /*позиционирование*/
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 1440px;
+}
 .header,
 .nav-list,
 .header-menu {
@@ -29,7 +40,8 @@
     align-items: center;
 }
 .about,
-.favorites {
+.favorites,
+.coffee-shop {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -90,7 +102,31 @@
     position: absolute;
     bottom: 15px;
     left: 20px;
-
+}
+.menu-container{
+    display: flex;
+    justify-content: space-between;
+}
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+}
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-list:last-child .menu-item {
+    justify-content: end;
+}
+.menu-list:last-child .menu-line{
+    position: initial;
+}
+.menu-list:last-child .menu-list-title{
+    position: unset;
+    align-self: self-end;    
 }
 /*блочная модель (размеры, отступы)*/
 .body {
@@ -189,7 +225,6 @@
 .season-box {  
     margin: 40px 0;
     width: 100%;
-    max-width: 1400px;
     height: 88px;   
 }
 .season-title {
@@ -236,6 +271,32 @@
     height: 0;
     border: 1px solid #BB945F;
 }
+.menu-container {
+    min-width: 100%;
+    height: 520px;
+}
+
+.menu-list-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.menu-item {
+    min-width: 438px;
+    position: relative;
+    margin-top: 40px;
+}
+.menu-line {
+    box-sizing: border-box;
+    width: 100px;
+    margin: 0 60px;
+    height: 0;
+    border: 1px #BB945F solid;
+    position: absolute;
+    right: 21px;
+}
+
 .staff-picks-title,
 .book-autor,
 .book-title,
@@ -250,8 +311,20 @@
 }
 .button-buy {
     width: 75px;
-    height: 30px;
+    height: 30px; 
 }
+.coffee-shop {
+    box-sizing: border-box;
+    min-width: 1440px;
+    height: 841px;
+    padding: 0 20px 40px 20px;
+}
+.coffee-shop-box {
+    width: 100%;
+    height: 120px;
+    margin: 40px 0;
+}
+
 /*типографика (свойства шрифта)*/
 .header-title {
     color: #FFF;
@@ -370,7 +443,7 @@ text-transform: capitalize;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    line-height: 40px; /* 266.667% */
+    line-height: 40px; 
     letter-spacing: 2px;
     text-transform: capitalize;
 }
@@ -384,6 +457,45 @@ text-transform: capitalize;
     line-height: normal;
     letter-spacing: 1px;
 }
+.coffee-shop-text {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    margin:0;
+}
+.menu-list-title {
+    color: #BB945F;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; 
+    letter-spacing: 2px;
+}
+.menu-name {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+}
+.menu-price {
+    color: #000;
+    font-family: Forum;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+}
+
 /*оформление (цвет фона, тень)*/
 .header-container,
 .title-line {
@@ -425,6 +537,16 @@ text-transform: capitalize;
 }
 
 /*анимация*/
+html {
+    scroll-behavior: smooth; 
+}
+.nav-link,
+.radio-button
+.carousel-button-link
+.profile-link{
+    transition: .3s;
+}
+
 .profile-icon {
     filter: grayscale(1);
     filter: brightness(3);
