@@ -14,6 +14,12 @@
     flex-direction: column;
     align-items: center;
 }
+.container  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1440px;
+}
 .main {
     display: flex;
     flex-flow: column nowrap;
@@ -144,7 +150,28 @@
     display: flex;
     justify-content: space-between;
 }
-
+.card-input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-input-border{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
 /*блочная модель (размеры, отступы)*/
 .body {
     min-width: 1440px;
@@ -153,7 +180,6 @@
    }
 .header-container {
     min-width: 1440px;
-    width: 100vw;
 }
 .header {
     min-width: 1440px;
@@ -173,7 +199,6 @@
     margin: 20px;
    }
 .welcome {
-    width: 100vw;
     height: 600px;
     margin: 0;
     min-width: 1440px;
@@ -181,7 +206,6 @@
 .overlay {
     width: 1440px;
     height: 300px;
-    flex-shrink: 0;
 }
 .welcome-box{
     box-sizing: border-box;
@@ -373,6 +397,63 @@
     margin-top: 40px;
     min-width: 100%;
 }
+.card-input-wrap {
+    width: 600px;
+    height: 453px;
+}
+.card-input-border {
+    box-sizing: border-box;
+    width: 600px;
+    height: 386px;
+    border: 3px solid #BB945F;
+    padding: 17px 17px 27px 17px;
+    margin-top: 30px;
+}
+.card-input-box {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 20px;
+    height: 272px;
+}
+.card-input-box h3 {
+    height: 50px;
+    margin: 20px 0;
+}
+.card-input-box input {
+    box-sizing: border-box;
+    height: 66px;
+    padding: 8px 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+.card-input-border button {
+    width: 242px;
+    height: 44px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+}
+.card-login-box {
+    width: 456px;
+    height: 253px;
+}
+.card-login-box h3 {
+    margin: 0;
+}
+.card-login-box p {
+    height: 120px;
+}
+.login-btn-row {
+    display: flex;
+}
+.login-btn-row button {
+    box-sizing: border-box;
+    width: 75px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+}
 /*типографика (свойства шрифта)*/
 .header-title {
     color: #FFF;
@@ -563,7 +644,73 @@ text-transform: capitalize;
     font-weight: 700;
     letter-spacing: 2.4px;
 }
-
+.card-input-header {
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+.card-input-box h3 {
+    color: #000;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; 
+    letter-spacing: 0.6px;
+}
+.card-input-box input {
+    color: #8E8E8E;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; 
+    letter-spacing: 0.6px;
+}
+.card-input-border button {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+.card-login-box h3 {
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+.card-login-box p {
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 200% */
+    letter-spacing: 0.4px;
+}
+.login-btn-row button {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
 /*оформление (цвет фона, тень)*/
 .header-container,
 .title-line {
@@ -605,6 +752,9 @@ text-transform: capitalize;
 }
 .map-container {
     background: url(../pictures/Map/map_library.png) lightgray 50% / cover no-repeat;
+}
+.card-input-box{
+    background: #BB945F;
 }
 
 /*анимация*/
