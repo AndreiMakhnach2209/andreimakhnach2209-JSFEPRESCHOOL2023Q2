@@ -10,169 +10,321 @@
     <link rel="icon" href="./images/favicon.ico">
 </head>
 <body class="body">
-    <div class="header-container">
-    <header class="header">
-        <h1 class="header-title">Brooklyn Public Library</h1>
-        <div class="header-menu">
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
-                    <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
-                    <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
-                    <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
-                </ul>
-            </nav>  
-            <a href="#profile-link" class="profile-link"><img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon"></a>
-        </div>       
-    </header>
-    </div>
-    <main class="main">
-        <section class="welcome">
-            <div class="welcome-container">
-                <div class="overlay"></div>                
-                    <div class="welcome-box">
-                        <h3 class="welcome-text">Welcome<br>to the Brooklyn<br>Library</h3>
-                    </div>                
-            </div>
-        </section>
-        <section class="about" id="about">
-            <div class="title-container">
-                <h2 class="title-section">About</h2>
-            </div>
-            <div class="title-line"></div>
-            <div class="about-box">
-                <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </span>
-            </div>
-            <div class="about-carousel">
-                <img class="carousel-item" src="./pictures/Carousel_images/image1.jpg" alt="image1">
-                <img class="carousel-item" src="./pictures/Carousel_images/image2.jpg" alt="image2">
-                <img class="carousel-item" src="./pictures/Carousel_images/image3.jpg" alt="image3">
-            </div>
-            <div class="carousel-button-box">
-                <!-- <img src="./images/carousel_button.svg" alt="carousel_button" usemap="#carousel">
-                <map name="carousel">
-                    <area shape="rect" coords="0 0 26 26" href="./pictures/Carousel_images/image1.jpg">
-                    <area shape="rect" coords="26 0 52 26" href="./pictures/Carousel_images/image2.jpg">
-                    <area shape="rect" coords="52 0 78 26" href="./pictures/Carousel_images/image3.jpg">
-                </map> -->
-                <a class="carousel-button-link" href="./pictures/Carousel_images/image1.jpg">
-                    <span class="carousel-button-act"></span>
-                </a>
-                <a class="carousel-button-link" href="./pictures/Carousel_images/image2.jpg">
-                    <span class="carousel-button"></span>
-                </a>
-                <a class="carousel-button-link" href="./pictures/Carousel_images/image3.jpg">
-                    <span class="carousel-button"></span>
-                </a>
-            </div>
-        </section>
-        <section class="favorites" id="favorites">
-            <div class="title-container">
-                <h2 class="title-section">Favorites</h2>
-            </div>
-            <div class="title-line"></div>
-            <div class="season-box">
-                <h3 class="season-title">Pick favorites of season</h3>
-                <div class="season-wrap">
-                    <div class="input-wrapper">
-                        <input class="radio-button" id="winter" type="radio" name="season" checked>
-                        <label class="season-label" for="winter">Winter</label>
-                    </div>
-                    <div class="input-wrapper">
+    <div class="container">
+        <div class="header-container">
+        <header class="header">
+            <h1 class="header-title">Brooklyn Public Library</h1>
+            <div class="header-menu">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
+                        <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
+                        <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                        <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
+                    </ul>
+                </nav>  
+                <a href="#profile-link" class="profile-link"><img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon"></a>
+            </div>       
+        </header>
+        </div>
+        <main class="main">
+            <section class="welcome">
+                <div class="welcome-container">
+                    <div class="overlay"></div>                
+                        <div class="welcome-box">
+                            <h3 class="welcome-text">Welcome<br>to the Brooklyn<br>Library</h3>
+                        </div>                
+                </div>
+            </section>    
+            <section class="about" id="about">
+                <div class="title-container">
+                    <h2 class="title-section">About</h2>
+                </div>
+                <div class="title-line"></div>
+                <div class="about-box">
+                    <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </span>
+                </div>
+                <div class="about-carousel">
+                    <img class="carousel-item" src="./pictures/Carousel_images/image1.jpg" alt="image1">
+                    <img class="carousel-item" src="./pictures/Carousel_images/image2.jpg" alt="image2">
+                    <img class="carousel-item" src="./pictures/Carousel_images/image3.jpg" alt="image3">
+                </div>
+                <div class="carousel-button-box">
+                    <!-- <img src="./images/carousel_button.svg" alt="carousel_button" usemap="#carousel">
+                    <map name="carousel">
+                        <area shape="rect" coords="0 0 26 26" href="./pictures/Carousel_images/image1.jpg">
+                        <area shape="rect" coords="26 0 52 26" href="./pictures/Carousel_images/image2.jpg">
+                        <area shape="rect" coords="52 0 78 26" href="./pictures/Carousel_images/image3.jpg">
+                    </map> -->
+                    <a class="carousel-button-link" href="./pictures/Carousel_images/image1.jpg">
+                        <span class="carousel-button-act"></span>
+                    </a>
+                    <a class="carousel-button-link" href="./pictures/Carousel_images/image2.jpg">
+                        <span class="carousel-button"></span>
+                    </a>
+                    <a class="carousel-button-link" href="./pictures/Carousel_images/image3.jpg">
+                        <span class="carousel-button"></span>
+                    </a>
+                </div>
+            </section>
+            <section class="favorites" id="favorites">
+                <div class="title-container">
+                    <h2 class="title-section">Favorites</h2>
+                </div>
+                <div class="title-line"></div>
+                <div class="season-box">
+                    <h3 class="season-title">Pick favorites of season</h3>
+                    <div class="season-wrap">
+                        <div class="input-wrapper">
+                            <input class="radio-button" id="winter" type="radio" name="season" checked>
+                            <label class="season-label" for="winter">Winter</label>
+                        </div>
+                        <div class="input-wrapper">
 
-                        <input class="radio-button" id="spring" type="radio" name="season">
-                        <label class="season-label" for="spring">Spring</label>
-                    </div>
-                    <div class="input-wrapper">
-                        <input class="radio-button" id="summer" type="radio" name="season">
-                        <label class="season-label" for="summer">Summer</label>
-                    </div>
-                    <div class="input-wrapper">
-                        <input class="radio-button" id="autumn" type="radio" name="season">
-                        <label class="season-label" for="autumn">Autumn</label>
+                            <input class="radio-button" id="spring" type="radio" name="season">
+                            <label class="season-label" for="spring">Spring</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="radio-button" id="summer" type="radio" name="season">
+                            <label class="season-label" for="summer">Summer</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="radio-button" id="autumn" type="radio" name="season">
+                            <label class="season-label" for="autumn">Autumn</label>
+                        </div>
                     </div>
                 </div>
+                <div class="favorites-list">
+                    <div class="favorites-item">
+                        <div class="favorites-desc">
+                            <div class="staff-picks">
+                                <h3 class="staff-picks-title">Staff Picks</h3>
+                                <div class="staff-picks-line"></div>
+                            </div>
+                            <div class="book-title-wrap">
+                                <h4 class="book-title">The Book Eaters</h4>
+                                <span class="book-autor">By Sunyi Dean</span>
+                            </div>
+                            <div class="book-desc-wrap">
+                                <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                            </div>
+                            <div class="button-buy-wrap">
+                                <button class="button-buy" type="button" name="first-button-buy">Buy</button>
+                            </div>
+                        </div>
+                        <div class="book-image"></div>
+                    </div>
+                    <div class="favorites-item">
+                        <div class="favorites-desc">
+                            <div class="staff-picks">
+                                <h3 class="staff-picks-title">Staff Picks</h3>
+                                <div class="staff-picks-line"></div>
+                            </div>
+                            <div class="book-title-wrap">
+                                <h4 class="book-title">Cackle</h4>
+                                <span class="book-autor">By Rachel Harrison</span>
+                            </div>
+                            <div class="book-desc-wrap">
+                                <p class="book-desc">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                            </div>
+                            <div class="button-buy-wrap">
+                                <button class="button-buy" name="second-button-buy" type="button">Buy</button>
+                            </div>
+                        </div>
+                        <div class="book-image"></div>
+                    </div>
+                    <div class="favorites-item">
+                        <div class="favorites-desc">
+                            <div class="staff-picks">
+                                <h3 class="staff-picks-title">Staff Picks</h3>
+                                <div class="staff-picks-line"></div>
+                            </div>
+                            <div class="book-title-wrap">
+                                <h4 class="book-title">Dante: Poet of the Secular World</h4>
+                                <span class="book-autor">By Erich Auerbach</span>
+                            </div>
+                            <div class="book-desc-wrap">
+                                <p class="book-desc">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+                            </div>
+                            <div class="button-buy-wrap">
+                                <button class="button-buy" type="button" name="third-button-buy">Buy</button>
+                            </div>
+                        </div>
+                        <div class="book-image"></div>
+                    </div>
+                    <div class="favorites-item">
+                        <div class="favorites-desc">
+                            <div class="staff-picks">
+                                <h3 class="staff-picks-title">Staff Picks</h3>
+                                <div class="staff-picks-line"></div>
+                            </div>
+                            <div class="book-title-wrap">
+                                <h4 class="book-title">The Last Queen</h4>
+                                <span class="book-autor">By Clive Irving</span>
+                            </div>
+                            <div class="book-desc-wrap">
+                                <p class="book-desc">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                            </div>
+                            <div class="button-buy-wrap">
+                                <button class="button-buy" type="button">Buy</button>
+                            </div>
+                        </div>
+                        <div class="book-image"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="coffee-shop" id="coffee-shop">
+                <div class="title-container">
+                    <h2 class="title-section">Coffee shop</h2>
+                </div>
+                <div class="title-line"></div>
+                <div class="coffee-shop-box">
+                    <p class="coffee-shop-text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
+                </div>
+                <div class="menu-container">
+                    <div class="menu-list">
+                        <div class="menu-list-title">Coffee & Tea</div>
+                        <div class="menu-item">
+                            <div class="menu-name">Cold Brew Coffee</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$3</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">French Press Pot</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$5</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Espresso</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$2</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Cappuccino</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$4</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Hot tea</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$2</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Cold tea</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$2</div>
+                        </div>
+                    </div>
+                    <div class="menu-list">
+                        <div class="menu-list-title">Desserts & Cakes</div>
+                        <div class="menu-item">
+                            <div class="menu-name">Forest Gateau</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$16</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Blue Moon</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$16</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Truffle Cake</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$15</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Chocolate Cake</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$18</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Poet’s Dream Cake</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$16</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-name">Pineapple Cake</div>
+                            <div class="menu-line"></div>
+                            <div class="menu-price">$14</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contacts" id="contacts">
+                    <div class="title-container">
+                        <h2 class="title-section">Our contacts</h2>
+                    </div>
+                    <div class="title-line"></div>
+                <div class="contacts-box">
+                    <div class="contacts-list">
+                        <div class="phone-list">
+                            <div class="phone-header">For all Library inquiries:</div>
+                            <div class="phone-item">Please call <a href="tel:(617) 730-2370">(617) 730-2370</a></div>
+                            <div class="phone-item">For TTY service, please call <a href="tel:(617) 730-2370">(617) 730-2370</a></div>
+                            <div class="phone-item">Putterham Library: <a href="tel:(617) 730-2385">(617) 730-2385</a></div>
+                        </div>
+                        <div class="mail-list">
+                            <div class="mail-item"><a href="mailto:seniorStaff@tut.by">Senior Staff</a></div>
+                            <div class="mail-item">Library Director: <a href="AmandaHirst@tut.by">Amanda Hirst</a></div>
+                        </div>
+                    </div>
+                    <div class="map-container"></div>
+                </div>
+            </section>
+            <section class="library-card" id="library-card">
+                <div class="title-container">
+                    <h2 class="title-section">Digital Library Cards</h2>
+                </div>
+                <div class="title-line"></div>
+                <div class="card-container">
+                    <div class="card-input-wrap">
+                        <div class="card-input-header">Find your Library card</div>
+                        <div class="card-input-border">
+                            <div class="card-input-box">
+                                <h3>Brooklyn Public Library</h3>
+                                <input name="readers-name" type="text" value="Reader's name" pattern="[a-zA-Z-]">
+                                <input name="cards-number" type="text" value="Card number" pattern="[a-zA-Z-]">
+                            </div>
+                            <button>Check the card</button>
+                        </div>
+                    </div>
+                    <div class="card-login-box">
+                        <h3>Get a reader card</h3>
+                        <p>You will be able to see a reader card after logging into account or you can register a new account</p>
+                        <div class="login-btn-row">
+                            <button>Sign Up</button>
+                            <button>Log in</button>
+                        </div>
+                    </div>
+                </div>                
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-frame">
+                <a class="footer-adress" href="https://www.google.com/maps/place/286+Cadman+Plaza+W,+Brooklyn,+NY+11201,+United,+States">286 Cadman Plaza, New York,<br>NY 11238, United States</a>
+                <div class="footer-work-shedule">Mon - Fri<br>08:00 am - 07:00 pm</div>
             </div>
-            <div class="favorites-list">
-                <div class="favorites-item">
-                    <div class="favorites-desc">
-                        <div class="staff-picks">
-                            <h3 class="staff-picks-title">Staff Picks</h3>
-                            <div class="staff-picks-line"></div>
-                        </div>
-                        <div class="book-title-wrap">
-                            <h4 class="book-title">The Book Eaters</h4>
-                            <span class="book-autor">By Sunyi Dean</span>
-                        </div>
-                        <div class="book-desc-wrap">
-                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
-                        </div>
-                        <div class="button-buy-wrap">
-                            <button class="button-buy" type="button">Buy</button>
-                        </div>
-                    </div>
-                    <div class="book-image"></div>
-                </div>
-                <div class="favorites-item">
-                    <div class="favorites-desc">
-                        <div class="staff-picks">
-                            <h3 class="staff-picks-title">Staff Picks</h3>
-                            <div class="staff-picks-line"></div>
-                        </div>
-                        <div class="book-title-wrap">
-                            <h4 class="book-title">The Book Eaters</h4>
-                            <span class="book-autor">By Sunyi Dean</span>
-                        </div>
-                        <div class="book-desc-wrap">
-                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
-                        </div>
-                        <div class="button-buy-wrap">
-                            <button class="button-buy" type="button">Buy</button>
-                        </div>
-                    </div>
-                    <div class="book-image"></div>
-                </div>
-                <div class="favorites-item">
-                    <div class="favorites-desc">
-                        <div class="staff-picks">
-                            <h3 class="staff-picks-title">Staff Picks</h3>
-                            <div class="staff-picks-line"></div>
-                        </div>
-                        <div class="book-title-wrap">
-                            <h4 class="book-title">The Book Eaters</h4>
-                            <span class="book-autor">By Sunyi Dean</span>
-                        </div>
-                        <div class="book-desc-wrap">
-                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
-                        </div>
-                        <div class="button-buy-wrap">
-                            <button class="button-buy" type="button">Buy</button>
-                        </div>
-                    </div>
-                    <div class="book-image"></div>
-                </div>
-                <div class="favorites-item">
-                    <div class="favorites-desc">
-                        <div class="staff-picks">
-                            <h3 class="staff-picks-title">Staff Picks</h3>
-                            <div class="staff-picks-line"></div>
-                        </div>
-                        <div class="book-title-wrap">
-                            <h4 class="book-title">The Book Eaters</h4>
-                            <span class="book-autor">By Sunyi Dean</span>
-                        </div>
-                        <div class="book-desc-wrap">
-                            <p class="book-desc">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
-                        </div>
-                        <div class="button-buy-wrap">
-                            <button class="button-buy" type="button">Buy</button>
-                        </div>
-                    </div>
-                    <div class="book-image"></div>
-                </div>
+            <div class="footer-frame">
+                <ul class="footer-socies-list">
+                    <li class="footer-socies-item">
+                        <a href="https://twitter.com/bklynlibrary"><img src="./images/u_twitter-alt.svg" alt="twitter"></a>
+                    </li>
+                    <li class="footer-socies-item">
+                        <a href="http://www.instagram.com/bklynlibrary"><img src="./images/u_instagram.svg" alt="twitter"></a>
+                    </li>
+                    <li class="footer-socies-item">
+                        <a href="http://www.facebook.com/BrooklynPublicLibraryFamily"><img src="./images/u_facebook-f.svg" alt="twitter"></a>
+                    </li>
+                </ul>
+                <div class="footer-work-shedule">Sat - Sun<br>10:00 am - 06:00 pm</div>
             </div>
-        </section>
-    </main>    
+            <div class="footer-frame-end">
+                <span class="year">2023</span>
+                <a class="school-link" href="https://rs.school/js-stage0/">The Rolling Scopes School</a>
+                <a class="user-link" href="https://github.com/AndreiMakhnach2209">AndreiMakhnach2209</a>                
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
