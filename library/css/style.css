@@ -106,7 +106,8 @@
     display: flex;
     flex-direction: column;
 }
-.button-buy {
+.button-buy,
+.button-own {
     position: absolute;
     bottom: 15px;
     left: 20px;
@@ -397,7 +398,8 @@
 .book-desc-wrap {
     width: 357px;
 }
-.button-buy {
+.button-buy,
+.button-own {
     width: 75px;
     height: 30px; 
 }
@@ -628,7 +630,21 @@
     text-transform: capitalize;
 }
 .button-buy {
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
     color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+.button-own {
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    color: #BB945F;
     text-align: center;
     font-family: Inter;
     font-size: 10px;
@@ -870,18 +886,36 @@ html {
 .nav-link,
 .radio-button
 .carousel-button-link
-.profile-link{
+.profile-link,
+.button-buy,
+.contacts-list a,
+.card-input-border button,
+.login-btn-row button,
+.footer a
+{
     transition: 0.5s;
 }
 
-.profile-icon {
+.profile-icon,
+.footer-socies-item {
     filter: grayscale(1);
     filter: brightness(3);
 }
-.profile-icon:hover {
+.profile-icon:hover,
+.footer-socies-item:hover {
     filter: none;
 }
 .carousel-button:hover {
     width: 18px;
     height: 18px;
+}
+.button-buy:hover,
+.card-input-border button:hover,
+.login-btn-row button:hover {
+    border: 1px solid #BB945F;
+    background: #BB945F;
+}
+.contacts-list a:hover,
+.footer a:hover {
+    color: #BB945F;
 }
