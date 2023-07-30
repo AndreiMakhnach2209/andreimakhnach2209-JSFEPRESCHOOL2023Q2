@@ -526,7 +526,7 @@
     font-weight: 400;
     line-height: 50px;
    }
-   .nav-link:hover {
+.nav-link:hover {
     cursor: pointer;
     color: #BB945F;
     font-weight: 700;
@@ -578,7 +578,9 @@
     color: #000;
     font-weight: 700;
 }
-.radio-button:hover + .season-label {
+.radio-button:hover + .season-label,
+.radio-button:hover {
+    cursor: pointer;
     color: #BB945F;
 }
 .season-label {
@@ -912,10 +914,12 @@ html {
 .button-buy:hover,
 .card-input-border button:hover,
 .login-btn-row button:hover {
+    cursor: pointer;
     border: 1px solid #BB945F;
     background: #BB945F;
 }
 .contacts-list a:hover,
 .footer a:hover {
+    cursor: pointer;
     color: #BB945F;
 }
