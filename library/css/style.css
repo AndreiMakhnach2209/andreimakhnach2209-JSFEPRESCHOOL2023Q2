@@ -15,7 +15,6 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 1440px;
     margin: 0;
     padding: 0;
 }
@@ -24,14 +23,19 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1440px;
+    max-width: 1440px;
+    width: 100vw;
 }
 
-.main {
+.header {
     display: flex;
-    flex-flow: column nowrap;
-    max-width: 1440px;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+    height: 90px;
+    margin: 0; 
 }
+
 
 .header-menu {
     display: flex;
@@ -42,17 +46,8 @@ html {
 .header-container {
     display: flex;
     justify-content: center;
-    min-width: 1440px;
+    min-width: 100%;
     background: #0C0C0E;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 1440px;
-    height: 90px;
-    margin: 0; 
 }
 
 .nav-list {
@@ -78,6 +73,8 @@ html {
 }
 
 .nav-item {
+    display: flex;
+    justify-content: center;
     margin: 15px;
 }
 
@@ -109,17 +106,45 @@ html {
     filter: none;
 }
 
+.burger-menu {
+    display: none;
+}
+
+.burger-icon {
+    width: 45px;
+    height: 20px;
+    margin: auto 20px;
+    filter: grayscale(1);
+    filter: brightness(3);
+    transition: 0.5s;
+}
+
+.burger-icon:hover {
+    filter: none;
+}
+
+
+.main {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+.welcome-container {
+    min-width: 100%;
+}
+
 .welcome {
     display: flex;
     justify-content: center;
     height: 600px;
     margin: 0;
-    min-width: 1440px;
+    min-width: 100%;
     background: url(../pictures/welcome-bacckground.jpg) lightgray 50% / cover no-repeat;
 }
 
 .overlay {
-    width: 1440px;
+    width: 100%;
     height: 300px;
     background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, #1212151a 100%);
 }
@@ -177,7 +202,7 @@ html {
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-width: 1440px;
+    min-width: 100%;
     height: 837px;
 }
 
@@ -253,7 +278,7 @@ html {
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    min-width: 1440px;
+    min-width: 100%;
     height: 1439px;
     padding: 0 20px;
 }
@@ -489,7 +514,7 @@ html {
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    min-width: 1440px;
+    min-width: 100%;
     height: 841px;
     padding: 0 20px 40px 20px;
 }
@@ -960,4 +985,38 @@ html {
     font-weight: 400;
     line-height: 20px; 
     letter-spacing: 2px;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 100vw;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: initial;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .nav-list {
+        padding: 0;
+    }
+
+    .footer-frame-end {
+        justify-content: space-between;
+    }
+
+    .year,
+    .user-link {
+        position:initial
+    }
+    
+    .school-link {
+        padding: 10px;
+    }
 }
