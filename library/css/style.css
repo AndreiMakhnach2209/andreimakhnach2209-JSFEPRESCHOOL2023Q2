@@ -316,19 +316,19 @@ html {
 .season-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: start;
+    gap: 40px;
     margin: 40px 0;
     width: 100%;
-    height: 88px;   
 }
 
 .season-wrap {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: end;
-    width: 700px;
-    height: 24px;
+    gap: 90px;
+    max-width: 100%;
 }
 
 .input-wrapper {
@@ -365,6 +365,7 @@ html {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    letter-spacing: 0.6px;
     transition: 0.5s;
 }
 
@@ -383,7 +384,7 @@ html {
 .favorites-list {
     display: flex;
     justify-content: space-between;
-    flex-flow: wrap;
+    flex-wrap: wrap;
     overflow: hidden;
     margin: 0;
     gap: 40px;
@@ -645,7 +646,6 @@ html {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 535px;
     padding: 0 20px 40px 20px;
 }
 
@@ -724,16 +724,15 @@ html {
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    height: 614px;
     padding: 0 20px 40px 20px;
 }
 
 .card-container {
     display: flex;
     justify-content: space-between;
-    height: 453px;
     margin-top: 40px;
     min-width: 100%;
+    gap: 20px;
 }
 
 .card-input-wrap {
@@ -831,10 +830,9 @@ html {
 .card-login-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: end;
-    width: 456px;
-    height: 253px;
+    gap: 35px;
+    max-width: 456px;
 }
 
 .card-login-box h3 {
@@ -850,14 +848,14 @@ html {
 }
 
 .card-login-box p {
-    height: 120px;
+    margin: 0;
     color: #000;
     text-align: right;
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 40px; /* 200% */
+    line-height: 40px;
     letter-spacing: 0.4px;
 }
 
@@ -1068,9 +1066,31 @@ html {
         margin-top: 40px;
     }
 
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-login-box {
+        align-items: center;
+        max-width: 600px;
+        gap: 40px;
+    }
+
+    .card-login-box p {
+        text-align: center;
+    }
+
+    .login-btn-row {
+        gap: 20px;
+    }
+
+    .login-btn-row button {
+        margin: 0;
+    }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1260px) {
     .nav-list {
         padding: 0;
     }
@@ -1092,4 +1112,12 @@ html {
         justify-content: center;
     }
 
+    .contacts-box {
+        flex-direction: column;
+    }
+
+    .map-container {
+        margin-top: 80px;
+        align-self: center;
+    }
 }
