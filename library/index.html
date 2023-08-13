@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./images/favicon.ico">
     <script src="index.js" ></script>
+    <script src="./js/burger_menu.js"></script>
 </head>
 <body class="body">
     <div class="container">
@@ -25,10 +26,35 @@
                         <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
                     </ul>
                 </nav>  
-                <a href="#profile-link" class="profile-link"><img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon"></a>
-            </div>       
+                <a href="#profile-link" class="profile-link">
+                    <img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon">
+                </a>
+                <div class="burger-menu-icon">
+                    <img class="burger-icon" src="./images/burger.svg" alt="menu" onclick="openBurger()">
+                </div>
+            </div>
+            <div class="burger-menu" id="burger">
+                <div class="burger-header">
+                    <a href="#profile-link" class="profile-link">
+                        <img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon">
+                    </a>
+                    <div class="burger-menu-icon">
+                        <img class="burger-icon" src="./images/burgerX.svg" alt="menu" onclick="closeBurger()">
+                    </div>
+                </div>
+                <nav class="burger-nav">
+                    <ul class="burger-list">
+                        <li class="nav-item"><a href="#about" class="nav-link" onclick="closeBurger()">About</a></li>
+                        <li class="nav-item"><a href="#favorites" class="nav-link" onclick="closeBurger()">Favorites</a></li>
+                        <li class="nav-item"><a href="#coffee-shop" class="nav-link" onclick="closeBurger()">Coffee shop</a></li>
+                        <li class="nav-item"><a href="#contacts" class="nav-link" onclick="closeBurger()">Contacts</a></li>
+                        <li class="nav-item"><a href="#library-card" class="nav-link" onclick="closeBurger()">Library Card</a></li>
+                    </ul>
+                </nav>  
+            </div>
+            <div class="burger-close" id='burger-close' onclick="closeBurger()"></div>
         </header>
-        </div>
+        </div> 
         <main class="main">
             <section class="welcome">
                 <div class="welcome-container">
@@ -47,17 +73,19 @@
                     <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </span>
                 </div>
                 <div class="about-carousel">
-                    <img class="carousel-item" src="./pictures/Carousel_images/image1.jpg" alt="image1">
-                    <img class="carousel-item" src="./pictures/Carousel_images/image2.jpg" alt="image2">
-                    <img class="carousel-item" src="./pictures/Carousel_images/image3.jpg" alt="image3">
+                    <a class="carousel-arrow-link" href="./pictures/Carousel_images/image1.jpg">
+                        <img class="carousel-arrow" src="./images/Arrow_2.svg" alt="arrow">
+                    </a>
+                    <div class="carousel-box">
+                        <img class="carousel-item" src="./pictures/Carousel_images/image1.jpg" alt="image1">
+                        <img class="carousel-item" src="./pictures/Carousel_images/image2.jpg" alt="image2">
+                        <img class="carousel-item" src="./pictures/Carousel_images/image3.jpg" alt="image3">
+                    </div>
+                    <a class="carousel-arrow-link" href="./pictures/Carousel_images/image1.jpg">
+                        <img class="carousel-arrow" src="./images/Arrow_1.svg" alt="arrow">
+                    </a>
                 </div>
-                <div class="carousel-button-box">
-                    <!-- <img src="./images/carousel_button.svg" alt="carousel_button" usemap="#carousel">
-                    <map name="carousel">
-                        <area shape="rect" coords="0 0 26 26" href="./pictures/Carousel_images/image1.jpg">
-                        <area shape="rect" coords="26 0 52 26" href="./pictures/Carousel_images/image2.jpg">
-                        <area shape="rect" coords="52 0 78 26" href="./pictures/Carousel_images/image3.jpg">
-                    </map> -->
+                <div class="carousel-button-box">                    
                     <a class="carousel-button-link" href="./pictures/Carousel_images/image1.jpg">
                         <span class="carousel-button-act"></span>
                     </a>
@@ -65,6 +93,12 @@
                         <span class="carousel-button"></span>
                     </a>
                     <a class="carousel-button-link" href="./pictures/Carousel_images/image3.jpg">
+                        <span class="carousel-button"></span>
+                    </a>
+                    <a class="carousel-button-link" href="./pictures/Carousel_images/image4.jpg">
+                        <span class="carousel-button"></span>
+                    </a>
+                    <a class="carousel-button-link" href="./pictures/Carousel_images/image5.jpg">
                         <span class="carousel-button"></span>
                     </a>
                 </div>
@@ -285,8 +319,8 @@
                         <div class="card-input-border">
                             <div class="card-input-box">
                                 <h3>Brooklyn Public Library</h3>
-                                <input name="readers-name" type="text" value="Reader's name" pattern="[a-zA-Z-]">
-                                <input name="cards-number" type="text" value="Card number" pattern="[a-zA-Z-]">
+                                <input name="readers-name" type="text" value="Reader's name" pattern="^[a-zA-Z]+$">
+                                <input name="cards-number" type="text" value="Card number" pattern="[a-z A-Z -]">
                             </div>
                             <button>Check the card</button>
                         </div>
