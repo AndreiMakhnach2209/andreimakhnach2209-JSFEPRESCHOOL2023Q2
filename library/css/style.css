@@ -137,6 +137,10 @@ html {
     transition: 1s;
 }
 
+.opened {
+    top: 0;
+}
+
 .burger-header {
     display: flex;
     justify-content: end;
@@ -168,13 +172,17 @@ html {
     margin: 10px;
 }
 
-.burger-close {
+.background-click {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    top: -100vh;
+    top: 0;
     left: 0;
-    z-index: 0;
+    z-index: 1;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .main {

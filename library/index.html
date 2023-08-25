@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./images/favicon.ico">
     <script src="index.js" ></script>
-    <script src="./js/burger_menu.js"></script>
 </head>
 <body class="body">
+    <div class="background-click hidden"></div>
     <div class="container">
         <div class="header-container">
         <header class="header">
@@ -33,7 +33,7 @@
                     <img class="burger-icon" src="./images/burger.svg" alt="menu" onclick="openBurger()">
                 </div>
             </div>
-            <div class="burger-menu" id="burger">
+            <div class="burger-menu">
                 <div class="burger-header">
                     <a href="#profile-link" class="profile-link">
                         <img class="profile-icon" src="./images/icon_profile.svg" alt="profile-icon">
@@ -44,15 +44,14 @@
                 </div>
                 <nav class="burger-nav">
                     <ul class="burger-list">
-                        <li class="nav-item"><a href="#about" class="nav-link" onclick="closeBurger()">About</a></li>
-                        <li class="nav-item"><a href="#favorites" class="nav-link" onclick="closeBurger()">Favorites</a></li>
-                        <li class="nav-item"><a href="#coffee-shop" class="nav-link" onclick="closeBurger()">Coffee shop</a></li>
-                        <li class="nav-item"><a href="#contacts" class="nav-link" onclick="closeBurger()">Contacts</a></li>
-                        <li class="nav-item"><a href="#library-card" class="nav-link" onclick="closeBurger()">Library Card</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
+                        <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
+                        <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                        <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
                     </ul>
                 </nav>  
             </div>
-            <div class="burger-close" id='burger-close' onclick="closeBurger()"></div>
         </header>
         </div> 
         <main class="main">
@@ -362,5 +361,6 @@
             </div>
         </footer>
     </div>
+    <script src="./js/burger_menu.js"></script>
 </body>
 </html>

@@ -1,9 +1,20 @@
-function openBurger() {
-    document.getElementById('burger').style.top = 0;
-    document.getElementById('burger-close').style.top = 0;
-}
-function closeBurger() {
-    document.getElementById('burger').style.top = '-570px';
-    document.getElementById('burger-close').style.top = '-100vh';
+const burgerMenu = document.querySelector('.burger-menu');
+const background = document.querySelector('.background-click');
+const burgerIcon = document.querySelectorAll('.burger-icon');
+const navItems = document.querySelectorAll('.nav-item');
 
+background.addEventListener('click', toggleBurger);
+
+function toggleBurger() {
+    burgerMenu.classList.toggle('opened');
+    background.classList.toggle('hidden');
 }
+
+function elementsEvent(elementsArray) {
+    elementsArray.forEach(i => {    
+        i.addEventListener('click', toggleBurger)
+    });
+}
+
+elementsEvent(burgerIcon);
+elementsEvent(navItems);
