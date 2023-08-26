@@ -315,20 +315,22 @@ html {
 }
 
 .carousel-item {
-    max-width: 450px;
     width: 32.14%;
 }
 
+.nodisplay {
+    display: none;
+}
 .carousel-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     gap: 25px;
+    transition: 0.5s;
 }
 
 .opacity {
-    transition: 0,5s;
     opacity: 0;
 }
 
