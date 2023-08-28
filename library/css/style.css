@@ -1106,13 +1106,13 @@ html {
         overflow: hidden;
     }
 
-    .carousel-item {
+    /* .carousel-item {
         display: none;
     }
 
     .carousel-item:first-child {
         display: initial;
-    }
+    } */
 
     
     .carousel-item {
