@@ -316,6 +316,13 @@ html {
 
 .carousel-item {
     width: 32.14%;
+    height: 100%;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    min-height: 560px;
 }
 
 .nodisplay {
@@ -327,7 +334,7 @@ html {
     align-items: center;
     width: 100%;
     gap: 25px;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .opacity {
@@ -364,9 +371,6 @@ html {
 }
 
 .active {
-    /* width: 14px;
-    height: 14px;
-    border-radius: 50%; */
     border: 1px solid #BB945F;
     background: #BB945F;
 }
