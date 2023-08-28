@@ -346,6 +346,15 @@ html {
     height: 100%;
     width: 58px;
     align-items: center;
+    transition: 0.5s;
+}
+
+.carousel-arrow-link:hover {
+    background-color: rgb(187, 148, 95, 0.2);
+}
+
+.disable {
+    opacity: 0.2;
 }
 
 .carousel-arrow-link:first-child {
@@ -356,6 +365,20 @@ html {
     justify-content: end;
 }
 
+.carousel-arrow {
+    width: 14px;
+    height: 14px;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
+}
+
+.carousel-arrow-link:first-child .carousel-arrow {
+    rotate: -45deg;
+}
+
+.carousel-arrow-link:last-child .carousel-arrow {
+    rotate: 135deg;
+}
 
 .carousel-button {
     border-radius: 50%;
@@ -1106,22 +1129,13 @@ html {
         overflow: hidden;
     }
 
-    /* .carousel-item {
-        display: none;
-    }
-
-    .carousel-item:first-child {
-        display: initial;
-    } */
-
-    
     .carousel-item {
         width: 450px;
     }
 
     .carousel-arrow-link {
         display: flex;
-        padding: 40px 3px 0 3px;
+        padding-top: 40px;
     }
 
     .carousel-button-link:nth-child(4), 

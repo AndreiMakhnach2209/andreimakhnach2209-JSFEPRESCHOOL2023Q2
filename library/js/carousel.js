@@ -3,12 +3,12 @@ const carouselButtons = document.querySelectorAll('.carousel-button');
 const carouselImages = document.querySelectorAll('.carousel-item');
 const carousel = document.querySelector('.carousel-box');
 const container = document.querySelector('.container');
+const arrows = document.querySelectorAll('.carousel-arrow-link');
 let indexActiveButton = 0;
 
 function paging(event) {
-    const target = event.target;
-    if (target != carouselButtons[indexActiveButton]) imagesPaging();
-    buttonsPaging(target);
+    if (event.target != carouselButtons[indexActiveButton]) imagesPaging();
+    buttonsPaging(event.target);    
 } 
 
 function buttonsPaging(target) {
@@ -20,6 +20,7 @@ function buttonsPaging(target) {
         item.classList.remove('active');
     });
     carouselButtons[indexActiveButton].classList.add('active');
+    arrowActivation(indexActiveButton);
 }
 
 function imagesPaging (){
@@ -52,9 +53,35 @@ function buttonActivation(elements) {
     });
 }
 
+function arrowPaging (event) {
+    indexActiveButton = (event.target === arrows[0] && indexActiveButton > 0) ? indexActiveButton - 1 : indexActiveButton;
+    indexActiveButton = (event.target === arrows[1] && indexActiveButton < 4) ? indexActiveButton + 1 : indexActiveButton;
+    paging(event);
+}
+
+function arrowActivation(index) {
+    arrows.forEach(item => {
+        item.classList.remove('disable')
+        item.addEventListener('click', arrowPaging);
+    });
+    switch (index) {
+        case 0:
+            arrows[0].removeEventListener('click', arrowPaging);
+            arrows[0].classList.add('disable');
+        break;
+        case 4:
+            arrows[1].removeEventListener('click', arrowPaging);
+            arrows[1].classList.add('disable');
+        break;
+
+    }
+}
+
+
 displayingImages();
 window.addEventListener('resize', () => {
     displayingImages();
     buttonsPaging();
 });
 buttonActivation(carouselButtons);
+arrowActivation(indexActiveButton);
