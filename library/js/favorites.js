@@ -107,16 +107,32 @@ const favorites = {
 
 }
 const bookTitles = document.querySelectorAll('.book-title');
-bookTitles[1].innerHTML = favorites.winter[0].bookTitle;
+const autors = document.querySelectorAll('.book-autor');
+const bookDescriptions = document.querySelectorAll('.book-desc');
 const bookImages = document.querySelectorAll('.book-image');
-let url = `url(${favorites.winter[0].bookImage})`;
+const radioButtons = document.querySelectorAll('.radio-button');
+let changedSeason = 'winter';
 
 for (const key in favorites) {
     favorites[key].forEach((item, index) => {
-        item.bookImage = `url(./pictures/favorites/${key + (1 + index)}.jpg)`        
+        item.bookImage = `url(./pictures/favorites/${key + (1 + index)}.jpg)` 
     });
 }
 
-favorites.winter.forEach((item, index) => {
-    bookImages[index].style.backgroundImage = item.bookImage;        
-});
+function booksReplacement(season) {
+    favorites[season].forEach((item, index) => {
+        bookTitles[index].innerHTML = item.bookTitle;
+        autors[index].innerHTML = item.autor;
+        bookDescriptions[index].innerHTML = item.bookDescription;
+        bookImages[index].style.backgroundImage = item.bookImage;
+    });
+}
+
+function seasonSelection(event) {
+    changedSeason = event.target.attributes[1].value;
+    booksReplacement(changedSeason);
+}
+
+radioButtons.forEach(item => {
+    item.addEventListener('change', seasonSelection);
+})
