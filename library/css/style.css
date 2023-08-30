@@ -313,6 +313,8 @@ html {
 }
 
 .carousel-item {
+    display: flex;
+    align-items: center;
     max-width: 450px;
     width: 32.14vw;
     height: 100%;
@@ -349,7 +351,7 @@ html {
 .carousel-arrow-link {
     display: none;
     height: 100%;
-    width: 52px;
+    width: 55px;
     align-items: center;
     transition: 0.5s;
 }
@@ -507,10 +509,12 @@ html {
     right: 0;
     width: 200px;
     height: 300px;
+    background: lightgray 50% / cover no-repeat;
+
 }
 
 
-.favorites-item:nth-child(1) .book-image{
+/* .favorites-item:nth-child(1) .book-image{
     background: url(../pictures/favorites/book_eaters.jpg) lightgray 50% / cover no-repeat;
 }
 
@@ -524,7 +528,7 @@ html {
 
 .favorites-item:nth-child(4) .book-image{
     background: url(../pictures/favorites/last_queen.jpg) lightgray 50% / cover no-repeat;
-}
+} */
 
 .favorites-desc {
     display: flex;
@@ -1137,7 +1141,7 @@ html {
 
     .about-carousel {
         justify-content: center;
-        width: 566px;
+        width: 572px;
     }
 
     .carousel-item {
@@ -1147,7 +1151,7 @@ html {
 
     .carousel-arrow-link {
         display: flex;
-        padding: 40px 3px;
+        padding: 20px 3px 0 3px;
     }
 
     .carousel-button-link:nth-child(4), 

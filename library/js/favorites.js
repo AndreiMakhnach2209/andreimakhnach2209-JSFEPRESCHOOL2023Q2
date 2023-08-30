@@ -1,87 +1,122 @@
-const carouselButtonsArea = document.querySelectorAll('.carousel-button-link');
-const carouselButtons = document.querySelectorAll('.carousel-button');
-const carouselImages = document.querySelectorAll('.carousel-item');
-const carousel = document.querySelector('.carousel-box');
-const container = document.querySelector('.container');
-const arrows = document.querySelectorAll('.carousel-arrow-link');
-let indexActiveButton = 0;
-
-function paging(event) {
-    if (event.target != carouselButtons[indexActiveButton]) imagesPaging();
-    buttonsPaging(event.target);    
-} 
-
-function buttonsPaging(target) {
-    carouselButtons.forEach((item, index) => {
-        if (item === target) 
-            indexActiveButton = (indexActiveButton < index) ? indexActiveButton + 1
-                            : (indexActiveButton > index) ? indexActiveButton - 1
-                            : indexActiveButton
-        item.classList.remove('active');
-    });
-    carouselButtons[indexActiveButton].classList.add('active');
-    arrowActivation(indexActiveButton);
-}
-
-function imagesPaging (){
-    carousel.classList.add('opacity');
-    carousel.addEventListener('transitionend', () => {
-        displayingImages();
-        carousel.classList.remove('opacity')
-    });
-}
-
-function displayingImages() {
-    let a = (container.clientWidth <= 1024) ? 0 : 2;
-    indexActiveButton = (container.clientWidth > 1024 && indexActiveButton > 2) ? 2 : indexActiveButton;
-    carouselImages.forEach((item, index) => {
-        item.classList.add('nodisplay');
-        if (indexActiveButton  <= index && index <= indexActiveButton + a) {
-            item.classList.remove('nodisplay');
+// данные для секции фаворитов вставить из массива объектов с описанием книг
+const favorites = {
+    winter : [
+        {
+            bookTitle : 'The Book Eaters',
+            autor : 'By Sunyi Dean',
+            bookDescription : 'An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.',
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Cackle',
+            autor : 'By Rachel Harrison',
+            bookDescription : 'Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.',
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Dante: Poet of the Secular World',
+            autor : 'By Erich Auerbach',
+            bookDescription : "Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'The Last Queen',
+            autor : 'By Clive Irving',
+            bookDescription : 'A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.',
+            bookImage : ''
         }
-    });
-}
-
-function buttonActivation(elements) {
-    elements.forEach((item, index) => {
-        if (!item.matches('active')) {
-            item.addEventListener('click', paging);
-        }else{
-            item.removeEventListener('click', paging);
-            indexActiveButton = index;
+    ],
+    spring : [
+        {
+            bookTitle : 'The Body',
+            autor : 'By Stephen King',
+            bookDescription : 'Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.',
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Carry: A Memoir of Survival on Stolen Land',
+            autor : 'By Toni Jenson',
+            bookDescription : "This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Days of Distraction',
+            autor : 'By Alexandra Chang',
+            bookDescription : "A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Dominicana',
+            autor : 'By Angie Cruz',
+            bookDescription : 'A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.',
+            bookImage : ''
         }
+    ],
+    summer : [
+        {
+            bookTitle : 'Crude: A Memoir',
+            autor : 'By Pablo Fajardo & ​​Sophie Tardy-Joubert',
+            bookDescription : 'Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people',
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Let My People Go Surfing',
+            autor : 'By Yvon Chouinard',
+            bookDescription : "Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'The Octopus Museum: Poems',
+            autor : 'By Brenda Shaughnessy',
+            bookDescription : "This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Shark Dialogues: A Novel',
+            autor : 'By Kiana Davenport',
+            bookDescription : "An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.",
+            bookImage : ''
+        }
+    ],
+    autumn : [
+        {
+            bookTitle : 'Casual Conversation',
+            autor : 'By Renia White',
+            bookDescription : "White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'The Great Fire',
+            autor : 'By Lou Ureneck',
+            bookDescription : "The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Rickey: The Life and Legend',
+            autor : 'By Howard Bryant',
+            bookDescription : "With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?",
+            bookImage : ''
+        },
+        {
+            bookTitle : 'Slug: And Other Stories',
+            autor : 'By Megan Milks',
+            bookDescription : "Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.",
+            bookImage : ''
+        }
+    ]
+
+}
+const bookTitles = document.querySelectorAll('.book-title');
+bookTitles[1].innerHTML = favorites.winter[0].bookTitle;
+const bookImages = document.querySelectorAll('.book-image');
+let url = `url(${favorites.winter[0].bookImage})`;
+
+for (const key in favorites) {
+    favorites[key].forEach((item, index) => {
+        item.bookImage = `url(./pictures/favorites/${key + (1 + index)}.jpg)`        
     });
 }
 
-function arrowPaging (event) {
-    indexActiveButton = (event.target === arrows[0] && indexActiveButton > 0) ? indexActiveButton - 1 : indexActiveButton;
-    indexActiveButton = (event.target === arrows[1] && indexActiveButton < 4) ? indexActiveButton + 1 : indexActiveButton;
-    paging(event);
-}
-
-function arrowActivation(index) {
-    arrows.forEach(item => {
-        item.classList.remove('disable')
-        item.addEventListener('click', arrowPaging);
-    });
-    switch (index) {
-        case 0:
-            arrows[0].removeEventListener('click', arrowPaging);
-            arrows[0].classList.add('disable');
-        break;
-        case 4:
-            arrows[1].removeEventListener('click', arrowPaging);
-            arrows[1].classList.add('disable');
-        break;
-
-    }
-}
-
-
-displayingImages();
-window.addEventListener('resize', () => {
-    displayingImages();
-    buttonsPaging();
+favorites.winter.forEach((item, index) => {
+    bookImages[index].style.backgroundImage = item.bookImage;        
 });
-buttonActivation(carouselButtons);
-arrowActivation(indexActiveButton);
