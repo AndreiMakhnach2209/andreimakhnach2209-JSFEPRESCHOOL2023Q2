@@ -7,51 +7,55 @@ const arrows = document.querySelectorAll('.carousel-arrow-link');
 let indexActiveButton = 0;
 
 function paging(event) {
-    buttonsPaging(event.currentTarget);
-    imagesPaging();
-    console.log(event.currentTarget != carouselButtonsArea[indexActiveButton])
+    if (event.target != carouselButtons[indexActiveButton]) imagesPaging();
+    buttonsPaging(event.target);    
 } 
 
 function buttonsPaging(target) {
-    carouselButtonsArea.forEach((item, index) => {
+    carouselButtons.forEach((item, index) => {
         if (item === target) 
             indexActiveButton = (indexActiveButton < index) ? indexActiveButton + 1
                             : (indexActiveButton > index) ? indexActiveButton - 1
                             : indexActiveButton
-    });
-    carouselButtons.forEach(item => {
         item.classList.remove('active');
-    })
+    });
     carouselButtons[indexActiveButton].classList.add('active');
     arrowActivation(indexActiveButton);
 }
 
 function imagesPaging (){
-    indexActiveButton = (container.clientWidth > 1024 && indexActiveButton > 2) ? 2 : indexActiveButton;
-    displayingImages();
+    carousel.classList.add('opacity');
+    carousel.addEventListener('transitionend', () => {
+        displayingImages();
+        carousel.classList.remove('opacity')
+    });
 }
 
 function displayingImages() {
-    let imageWidth = carouselImages[indexActiveButton].clientWidth;
-    carousel.style.right = imageWidth * indexActiveButton + 'px';
-    console.log(indexActiveButton)
-
+    let a = (container.clientWidth <= 1024) ? 0 : 2;
+    indexActiveButton = (container.clientWidth > 1024 && indexActiveButton > 2) ? 2 : indexActiveButton;
+    carouselImages.forEach((item, index) => {
+        item.classList.add('nodisplay');
+        if (indexActiveButton  <= index && index <= indexActiveButton + a) {
+            item.classList.remove('nodisplay');
+        }
+    });
 }
 
-function buttonActivation() {
-    carouselButtons.forEach((item, index) => {
+function buttonActivation(elements) {
+    elements.forEach((item, index) => {
         if (!item.matches('active')) {
-            carouselButtonsArea[index].addEventListener('click', paging);
+            item.addEventListener('click', paging);
         }else{
-            carouselButtonsArea[index].removeEventListener('click', paging);
+            item.removeEventListener('click', paging);
             indexActiveButton = index;
         }
     });
 }
 
 function arrowPaging (event) {
-    indexActiveButton = (event.currentTarget === arrows[0] && indexActiveButton > 0) ? indexActiveButton - 1 : indexActiveButton;
-    indexActiveButton = (event.currentTarget === arrows[1] && indexActiveButton < 4) ? indexActiveButton + 1 : indexActiveButton;
+    indexActiveButton = (event.target === arrows[0] && indexActiveButton > 0) ? indexActiveButton - 1 : indexActiveButton;
+    indexActiveButton = (event.target === arrows[1] && indexActiveButton < 4) ? indexActiveButton + 1 : indexActiveButton;
     paging(event);
 }
 
@@ -73,10 +77,11 @@ function arrowActivation(index) {
     }
 }
 
+
 displayingImages();
 window.addEventListener('resize', () => {
-    imagesPaging();
+    displayingImages();
     buttonsPaging();
 });
-buttonActivation();
+buttonActivation(carouselButtons);
 arrowActivation(indexActiveButton);

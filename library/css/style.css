@@ -283,8 +283,6 @@ html {
 
 .about-carousel {
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     max-width: 1400px;
     width: 100%;
@@ -315,7 +313,8 @@ html {
 }
 
 .carousel-item {
-    width: 32.14%;
+    max-width: 450px;
+    width: 32.14vw;
     height: 100%;
 }
 
@@ -328,13 +327,19 @@ html {
 .nodisplay {
     display: none;
 }
+
 .carousel-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: start;
+    position: relative;
     gap: 25px;
-    transition: 0.3s;
+    transition: 0.5s;
+}
+
+.carousel-box-wraper {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
 }
 
 .opacity {
@@ -344,7 +349,7 @@ html {
 .carousel-arrow-link {
     display: none;
     height: 100%;
-    width: 58px;
+    width: 52px;
     align-items: center;
     transition: 0.5s;
 }
@@ -1123,19 +1128,26 @@ html {
     }
 
     .carousel-box {
-        width: auto;
         gap: 0;
+    }
+
+    .carousel-box-wraper {
+        width: 450px;
+    }
+
+    .about-carousel {
         justify-content: center;
-        overflow: hidden;
+        width: 566px;
     }
 
     .carousel-item {
         width: 450px;
+        flex-shrink: 0;
     }
 
     .carousel-arrow-link {
         display: flex;
-        padding-top: 40px;
+        padding: 40px 3px;
     }
 
     .carousel-button-link:nth-child(4), 
