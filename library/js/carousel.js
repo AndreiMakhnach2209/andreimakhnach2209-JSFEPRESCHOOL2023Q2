@@ -9,7 +9,6 @@ let indexActiveButton = 0;
 function paging(event) {
     buttonsPaging(event.currentTarget);
     imagesPaging();
-    console.log(event.currentTarget != carouselButtonsArea[indexActiveButton])
 } 
 
 function buttonsPaging(target) {
@@ -32,10 +31,8 @@ function imagesPaging (){
 }
 
 function displayingImages() {
-    let imageWidth = carouselImages[indexActiveButton].clientWidth;
+    let imageWidth = (container.clientWidth > 1024) ? carouselImages[indexActiveButton].clientWidth + 25 : carouselImages[indexActiveButton].clientWidth;
     carousel.style.right = imageWidth * indexActiveButton + 'px';
-    console.log(indexActiveButton)
-
 }
 
 function buttonActivation() {
