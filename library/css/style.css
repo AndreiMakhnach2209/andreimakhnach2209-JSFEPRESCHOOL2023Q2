@@ -283,8 +283,6 @@ html {
 
 .about-carousel {
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     max-width: 1400px;
     width: 100%;
@@ -315,23 +313,55 @@ html {
 }
 
 .carousel-item {
+    display: flex;
+    align-items: center;
     max-width: 450px;
-    width: 32.14%;
+    width: 32.14vw;
+    height: 100%;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    min-height: 560px;
+}
+
+.nodisplay {
+    display: none;
 }
 
 .carousel-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: start;
+    position: relative;
     gap: 25px;
+    transition: 0.5s;
+}
+
+.carousel-box-wraper {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.opacity {
+    opacity: 0;
 }
 
 .carousel-arrow-link {
     display: none;
     height: 100%;
-    width: 58px;
+    width: 55px;
     align-items: center;
+    transition: 0.5s;
+}
+
+.carousel-arrow-link:hover {
+    background-color: rgb(187, 148, 95, 0.2);
+}
+
+.disable {
+    opacity: 0.2;
 }
 
 .carousel-arrow-link:first-child {
@@ -342,6 +372,20 @@ html {
     justify-content: end;
 }
 
+.carousel-arrow {
+    width: 14px;
+    height: 14px;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
+}
+
+.carousel-arrow-link:first-child .carousel-arrow {
+    rotate: -45deg;
+}
+
+.carousel-arrow-link:last-child .carousel-arrow {
+    rotate: 135deg;
+}
 
 .carousel-button {
     border-radius: 50%;
@@ -356,12 +400,14 @@ html {
     height: 18px;
 }
 
-.carousel-button-act {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
+.active {
     border: 1px solid #BB945F;
     background: #BB945F;
+}
+
+.active:hover {
+    width: 14px;
+    height: 14px;
 }
 
 .favorites {
@@ -415,7 +461,7 @@ html {
     width: 16px;
     height: 16px;
     accent-color: #000;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .season-label {
@@ -448,6 +494,7 @@ html {
     overflow: hidden;
     margin: 0;
     gap: 40px;
+    transition: 1.5s;
 }
 
 .favorites-item {
@@ -463,10 +510,12 @@ html {
     right: 0;
     width: 200px;
     height: 300px;
+    background: lightgray 50% / cover no-repeat;
+
 }
 
 
-.favorites-item:nth-child(1) .book-image{
+/* .favorites-item:nth-child(1) .book-image{
     background: url(../pictures/favorites/book_eaters.jpg) lightgray 50% / cover no-repeat;
 }
 
@@ -480,7 +529,7 @@ html {
 
 .favorites-item:nth-child(4) .book-image{
     background: url(../pictures/favorites/last_queen.jpg) lightgray 50% / cover no-repeat;
-}
+} */
 
 .favorites-desc {
     display: flex;
@@ -1084,33 +1133,27 @@ html {
     }
 
     .carousel-box {
-        width: auto;
         gap: 0;
+    }
+
+    .carousel-box-wraper {
+        width: 450px;
+    }
+
+    .about-carousel {
         justify-content: center;
-        overflow: hidden;
+        width: 572px;
     }
 
-    .carousel-item {
-        display: none;
-    }
-
-    .carousel-item:first-child {
-        display: initial;
-    }
-
-    
     .carousel-item {
         width: 450px;
+        flex-shrink: 0;
     }
 
     .carousel-arrow-link {
         display: flex;
-        padding: 40px 3px 0 3px;
+        padding: 20px 3px 0 3px;
     }
-
-    /* .carousel-button-box {
-        margin-top: 0;
-    } */
 
     .carousel-button-link:nth-child(4), 
     .carousel-button-link:nth-child(5) {
@@ -1170,6 +1213,15 @@ html {
 
     .favorites-list {
         justify-content: center;
+    }
+
+    .season-box {
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        z-index: 1;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
     }
 
     .contacts-box {
