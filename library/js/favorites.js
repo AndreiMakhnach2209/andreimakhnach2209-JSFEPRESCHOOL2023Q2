@@ -1,4 +1,3 @@
-// данные для секции фаворитов вставить из массива объектов с описанием книг
 const favorites = {
     winter : [
         {
@@ -111,6 +110,7 @@ const autors = document.querySelectorAll('.book-autor');
 const bookDescriptions = document.querySelectorAll('.book-desc');
 const bookImages = document.querySelectorAll('.book-image');
 const radioButtons = document.querySelectorAll('.radio-button');
+const favoritesContainer = document.querySelector('.favorites-list')
 let changedSeason = 'winter';
 
 for (const key in favorites) {
@@ -120,19 +120,33 @@ for (const key in favorites) {
 }
 
 function booksReplacement(season) {
-    favorites[season].forEach((item, index) => {
-        bookTitles[index].innerHTML = item.bookTitle;
-        autors[index].innerHTML = item.autor;
-        bookDescriptions[index].innerHTML = item.bookDescription;
-        bookImages[index].style.backgroundImage = item.bookImage;
+    favoritesContainer.classList.add('opacity');
+    favoritesContainer.addEventListener('transitionend', () => {
+        favorites[season].forEach((item, index) => {
+            bookTitles[index].innerHTML = item.bookTitle;
+            autors[index].innerHTML = item.autor;
+            bookDescriptions[index].innerHTML = item.bookDescription;
+            bookImages[index].style.backgroundImage = item.bookImage;
+        });
+        favoritesContainer.classList.remove('opacity');
     });
 }
 
 function seasonSelection(event) {
-    changedSeason = event.target.attributes[1].value;
+    clearInterval(timerId);
+    changedSeason = event.target.attributes[1].value;    
     booksReplacement(changedSeason);
 }
 
 radioButtons.forEach(item => {
     item.addEventListener('change', seasonSelection);
 })
+
+booksReplacement(changedSeason);
+
+let i = 0;
+let timerId = setInterval(() => {
+        i = (i < 3) ? i + 1 : 0;
+        booksReplacement(Object.keys(favorites)[i]);
+        radioButtons[i].checked = true;
+}, 5000);

@@ -461,7 +461,7 @@ html {
     width: 16px;
     height: 16px;
     accent-color: #000;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .season-label {
@@ -494,6 +494,7 @@ html {
     overflow: hidden;
     margin: 0;
     gap: 40px;
+    transition: 1.5s;
 }
 
 .favorites-item {
@@ -1212,6 +1213,15 @@ html {
 
     .favorites-list {
         justify-content: center;
+    }
+
+    .season-box {
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        z-index: 1;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
     }
 
     .contacts-box {
