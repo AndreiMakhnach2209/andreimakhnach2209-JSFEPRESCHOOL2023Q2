@@ -101,6 +101,8 @@ html {
     filter: grayscale(1);
     filter: brightness(3);
     transition: 0.5s;
+    position:relative;
+    z-index: 2;
 }
 
 .profile-icon:hover {
@@ -118,6 +120,8 @@ html {
     filter: grayscale(1);
     filter: brightness(3);
     transition: 0.5s;
+    z-index: 2;
+    position: relative;
 }
 
 .burger-icon:hover {
@@ -138,7 +142,7 @@ html {
     transition: 1s;
 }
 
-.opened {
+.burger-open {
     top: 0;
 }
 
@@ -197,6 +201,7 @@ html {
     height: 115px;
     background-color: #FFF;
     z-index: 3;
+    transition: 0.5s;
 }
 
 .drop-open {

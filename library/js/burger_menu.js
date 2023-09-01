@@ -1,20 +1,23 @@
 const burgerMenu = document.querySelector('.burger-menu');
 const background = document.querySelector('.background-click');
-const burgerIcon = document.querySelectorAll('.burger-icon');
+const burgerIcons = document.querySelectorAll('.burger-icon');
 const navItems = document.querySelectorAll('.nav-item');
 
-background.addEventListener('click', toggleBurger);
-
-function toggleBurger() {
-    burgerMenu.classList.toggle('opened');
-    background.classList.toggle('hidden');
+function openingBurger() {
+    closingDrop();
+    burgerMenu.classList.add('burger-open');
+    background.classList.remove('hidden');
 }
 
-function elementsEvent(elementsArray) {
-    elementsArray.forEach(i => {    
-        i.addEventListener('click', toggleBurger)
-    });
+function closingBurger() {
+    burgerMenu.classList.remove('burger-open');
+    background.classList.add('hidden');
 }
 
-elementsEvent(burgerIcon);
-elementsEvent(navItems);
+navItems.forEach(i => {    
+    i.addEventListener('click', closingBurger);
+});
+
+burgerIcons[0].addEventListener('click', openingBurger);
+burgerIcons[1].addEventListener('click', closingBurger);
+background.addEventListener('click', closingBurger);
