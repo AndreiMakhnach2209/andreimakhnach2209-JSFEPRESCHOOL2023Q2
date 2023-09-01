@@ -11,7 +11,41 @@
     <script src="index.js" ></script>
 </head>
 <body class="body">
-    <div class="background-click hidden"></div>
+    <div class="background-click hidden">
+        <div class="modal-container opacity">
+            <div class="modal-register nodisplay">
+                <h2 class="modal-title">Register</h2>
+                <div class="modal-close-button"></div>
+                <form class="modal-form" method="post" name="register">
+                    <p>
+                        <label>First name
+                            <input class="register-input" type="text" name="user-firstname">
+                        </label>
+                    </p>
+                    <p>
+                        <label>Last name
+                            <input class="register-input" type="text" name="user-lastname">
+                        </label>
+                    </p>
+                    <p>
+                        <label>E-mail
+                            <input class="register-input" type="email" name="user-email">
+                        </label>
+                    </p>
+                    <p>
+                        <label>Password
+                            <input class="register-input" type="password" name="user-password">
+                        </label>
+                    </p>
+                    <input class="modal-submit" type="submit" value="Sign Up">
+                </form>
+                <div class="register-footer">
+                    <p>Already have an account?</p>
+                    <button>Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="header-container">
         <header class="header">
@@ -222,7 +256,7 @@
                                 <p class="book-desc">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
                             </div>
                             <div class="button-buy-wrap">
-                                <button class="button-own" type="button" disabled>Own</button>
+                                <button class="button-buy" type="button" name="fourth-button-buy">Buy</button>
                             </div>
                         </div>
                         <div class="book-image"></div>

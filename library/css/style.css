@@ -178,12 +178,16 @@ html {
 }
 
 .background-click {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
+    transition: 0.7s;
 }
 
 .hidden {
@@ -243,6 +247,89 @@ html {
 
 .drop-button:hover {
     color: #BB945F;
+}
+
+.shade {
+    background: rgb(12, 12, 14, 0.5);
+}
+
+.modal-container {
+    transition: 0.7s;
+}
+
+.modal-register {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+    padding: 20px 25px;
+    width: 250px;
+    height: 382px;
+    background: #FFF;
+}
+
+.modal-title{
+    margin: 0;
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 20px 0 10px 0;
+    width: 200px;
+}
+
+.modal-form p {
+    margin: 0;
+}
+
+.modal-form label {
+    height: 20px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 0.3px;
+}
+
+.modal-form label input {
+    margin: 10px 0;
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    border-style: none;
+    border: 1px solid #BB945F;
+}
+
+.modal-submit {
+    margin: 10px 0;
+    box-sizing: border-box;
+    width: 75px;
+    height: 30px;
+    border: 1px solid #000;
+    background: none;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
 }
 
 .main {

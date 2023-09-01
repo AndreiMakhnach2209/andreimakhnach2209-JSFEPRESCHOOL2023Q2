@@ -1,6 +1,8 @@
 const dropMenu = document.querySelector('.drop-menu');
 const profileIcons = document.querySelectorAll('.profile-icon');
 const dropButtons = document.querySelectorAll('.drop-button');
+const modalContainer = document.querySelector('.modal-container');
+const modalRegister = document.querySelector('.modal-register');
 
 function openingDrop() {
     closingBurger();
@@ -21,8 +23,15 @@ profileIcons.forEach(i => {
     })
 });
 
+function openingRegister() {
+    modalRegister.classList.remove('nodisplay');
+    background.classList.add('shade');
+    background.classList.remove('hidden');
+    modalContainer.classList.remove('opacity');
+}
+
 dropButtons.forEach(i => {
-    i.addEventListener('click', closingDrop);
+    i.addEventListener('click', openingRegister);
 })
 
 background.addEventListener('click', closingDrop);
