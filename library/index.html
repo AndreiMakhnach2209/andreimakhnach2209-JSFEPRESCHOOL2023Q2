@@ -19,29 +19,50 @@
                 <form class="modal-form" method="post" name="register">
                     <p>
                         <label>First name
-                            <input class="register-input" type="text" name="user-firstname">
+                            <input class="modal-input" type="text" name="user-firstname">
                         </label>
                     </p>
                     <p>
                         <label>Last name
-                            <input class="register-input" type="text" name="user-lastname">
+                            <input class="modal-input" type="text" name="user-lastname">
                         </label>
                     </p>
                     <p>
                         <label>E-mail
-                            <input class="register-input" type="email" name="user-email">
+                            <input class="modal-input" type="email" name="user-email">
                         </label>
                     </p>
                     <p>
                         <label>Password
-                            <input class="register-input" type="password" name="user-password">
+                            <input class="modal-input" type="password" name="user-password">
                         </label>
                     </p>
                     <input class="modal-submit" type="submit" value="Sign Up">
                 </form>
-                <div class="register-footer">
+                <div class="modal-footer">
                     <p>Already have an account?</p>
                     <button>Login</button>
+                </div>
+            </div>
+            <div class="modal-login nodisplay">
+                <h2 class="modal-title">Login</h2>
+                <div class="modal-close-button"></div>
+                <form class="modal-form" method="post" name="login">
+                    <p>
+                        <label>E-mail or readers card
+                            <input class="modal-input" type="text" name="user-login">
+                        </label>
+                    </p>
+                    <p>
+                        <label>Password
+                            <input class="modal-input" type="text" name="user-password">
+                        </label>
+                    </p>
+                    <input class="modal-submit" type="submit" value="Log in">
+                </form>
+                <div class="modal-footer">
+                    <p>Don’t have an account?</p>
+                    <button>Register</button>
                 </div>
             </div>
         </div>

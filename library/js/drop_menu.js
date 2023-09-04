@@ -28,10 +28,21 @@ function openingRegister() {
     background.classList.add('shade');
     background.classList.remove('hidden');
     modalContainer.classList.remove('opacity');
+    closingDrop();
+}
+
+function closingReister() {
+    modalContainer.classList.add('opacity');
+    background.classList.remove('shade');
+    modalRegister.classList.add('nodisplay');
+    background.classList.add('hidden');
 }
 
 dropButtons.forEach(i => {
     i.addEventListener('click', openingRegister);
 })
 
-background.addEventListener('click', closingDrop);
+background.addEventListener('click', () => {
+    closingDrop();
+    closingReister();
+});

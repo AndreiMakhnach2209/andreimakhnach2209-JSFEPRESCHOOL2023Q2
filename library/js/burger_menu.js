@@ -7,6 +7,7 @@ function openingBurger() {
     closingDrop();
     burgerMenu.classList.add('burger-open');
     background.classList.remove('hidden');
+    closingReister();
 }
 
 function closingBurger() {
