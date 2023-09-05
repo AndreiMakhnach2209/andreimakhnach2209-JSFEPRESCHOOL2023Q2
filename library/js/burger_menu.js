@@ -4,10 +4,8 @@ const burgerIcons = document.querySelectorAll('.burger-icon');
 const navItems = document.querySelectorAll('.nav-item');
 
 function openingBurger() {
-    closingDrop();
     burgerMenu.classList.add('burger-open');
     background.classList.remove('hidden');
-    closingReister();
 }
 
 function closingBurger() {
@@ -19,6 +17,10 @@ navItems.forEach(i => {
     i.addEventListener('click', closingBurger);
 });
 
-burgerIcons[0].addEventListener('click', openingBurger);
+burgerIcons[0].addEventListener('click', () => {
+    closingDrop();
+    closingModal();
+    openingBurger();
+});
+
 burgerIcons[1].addEventListener('click', closingBurger);
-background.addEventListener('click', closingBurger);
