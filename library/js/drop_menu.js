@@ -6,6 +6,7 @@ const modalRegister = document.querySelectorAll('.modal-menu')[0];
 const modalLogin = document.querySelectorAll('.modal-menu')[1];
 const modalCloseButtons = document.querySelectorAll('.modal-close-button');
 const modalFooterButtons = document.querySelectorAll('.modal-footer button');
+const signUpButton = document.querySelectorAll('.login-btn-row button')[0];
 
 
 function openingDrop() {
@@ -75,11 +76,16 @@ modalFooterButtons[1].addEventListener('click', () => {
     openingModal(modalRegister);
 })
 
-console.log(modalFooterButtons);
 background.addEventListener('click', (event) => {
     if (!modalContainer.contains(event.target)) {
         closingDrop();
         closingModal();
         closingBurger();
     }
+});
+
+signUpButton.addEventListener('click', () => {
+    closingBurger();
+    closingDrop();
+    openingModal(modalRegister);
 });

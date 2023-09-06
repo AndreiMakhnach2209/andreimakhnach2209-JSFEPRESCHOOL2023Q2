@@ -22,22 +22,22 @@
                 <form class="modal-form" method="post" name="register">
                     <p>
                         <label>First name
-                            <input class="modal-input" type="text" name="user-firstname">
+                            <input class="modal-input" type="text" name="user-firstname" required>
                         </label>
                     </p>
                     <p>
                         <label>Last name
-                            <input class="modal-input" type="text" name="user-lastname">
+                            <input class="modal-input" type="text" name="user-lastname" required>
                         </label>
                     </p>
                     <p>
                         <label>E-mail
-                            <input class="modal-input" type="email" name="user-email">
+                            <input class="modal-input" type="email" name="user-email" required>
                         </label>
                     </p>
                     <p>
                         <label>Password
-                            <input class="modal-input" type="password" name="user-password">
+                            <input class="modal-input" type="password" name="user-password" minlength="8" required>
                         </label>
                     </p>
                     <input class="modal-submit" type="submit" value="Sign Up">
@@ -56,12 +56,12 @@
                 <form class="modal-form" method="post" name="login">
                     <p>
                         <label>E-mail or readers card
-                            <input class="modal-input" type="text" name="user-login">
+                            <input class="modal-input" type="text" name="user-login" required>
                         </label>
                     </p>
                     <p>
                         <label>Password
-                            <input class="modal-input" type="text" name="user-password">
+                            <input class="modal-input" type="text" name="user-password" minlength="8" required>
                         </label>
                     </p>
                     <input class="modal-submit" type="submit" value="Log in">
@@ -399,8 +399,8 @@
                         <div class="card-input-border">
                             <div class="card-input-box">
                                 <h3>Brooklyn Public Library</h3>
-                                <input name="readers-name" type="text" value="Reader's name" pattern="^[a-zA-Z]+$">
-                                <input name="cards-number" type="text" value="Card number" pattern="[a-z A-Z -]">
+                                <input name="readers-name" type="text" placeholder="Reader's name" pattern="^[a-zA-Z]+$">
+                                <input name="cards-number" type="text" placeholder="Card number" pattern="[A-Za-z]">
                             </div>
                             <button>Check the card</button>
                         </div>
@@ -446,5 +446,6 @@
     <script src="./js/carousel.js"></script>
     <script src="./js/favorites.js"></script>
     <script src="./js/drop_menu.js"></script>
+    <script src="./js/form_handler.js"></script>
 </body>
 </html>

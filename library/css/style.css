@@ -828,6 +828,7 @@ html {
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1px;
+    background-color: transparent;
 }
 
 .button-buy {
@@ -1130,6 +1131,7 @@ html {
     line-height: normal;
     letter-spacing: 1px;
     transition: 0.5s;
+    background-color: transparent;
 }
 
 .card-input-border button:hover {
@@ -1190,6 +1192,7 @@ html {
     line-height: normal;
     letter-spacing: 1px;
     transition: 0.5s;
+    background-color: transparent;
 }
 
 .login-btn-row button:hover {
