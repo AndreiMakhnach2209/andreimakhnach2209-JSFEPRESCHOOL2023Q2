@@ -7,7 +7,9 @@ const modalLogin = document.querySelectorAll('.modal-menu')[1];
 const modalCloseButtons = document.querySelectorAll('.modal-close-button');
 const modalFooterButtons = document.querySelectorAll('.modal-footer button');
 const signUpButton = document.querySelectorAll('.login-btn-row button')[0];
-
+const userIcons = document.querySelectorAll('.user-icon')
+const buttonsBuy = document.querySelectorAll('.button-buy');
+const dropTitle = document.querySelector('.drop-title');
 
 function openingDrop() {
     closingBurger();
@@ -37,33 +39,41 @@ function closingModal() {
     background.classList.add('hidden');
 }
 
-profileIcons[0].addEventListener('click', () => {
-    if (dropMenu.classList.contains('drop-open')) 
-        closingDrop()
-    else {
-        closingModal();
+[profileIcons[0], userIcons[0]].forEach(item => {
+    item.addEventListener('click', () => {
+        if (dropMenu.classList.contains('drop-open')) 
+            closingDrop()
+        else {
+            closingModal();
+            openingDrop();
+        };
+    });
+});
+
+[profileIcons[1], userIcons[1]].forEach(item => {
+    item.addEventListener('click', () => {
+        closingBurger();
         openingDrop();
-    };
+    });
 });
 
-profileIcons[1].addEventListener('click', () => {
-    closingBurger();
-    openingDrop();
-});
-
-
-dropButtons[0].addEventListener('click', () => {
+function openingLoginForm() {
     closingBurger();
     closingDrop();
     openingModal(modalLogin);
+}
+
+[dropButtons[0], ...buttonsBuy].forEach(item => {
+    item.addEventListener('click', openingLoginForm)
 });
 
-dropButtons[1].addEventListener('click', () => {
-    closingBurger();
-    closingDrop();
-    openingModal(modalRegister);
-});
-
+[dropButtons[1], signUpButton].forEach(item => {
+    item.addEventListener('click', () => {
+        closingBurger();
+        closingDrop();
+        openingModal(modalRegister);
+    });
+})
 modalCloseButtons.forEach(i => i.addEventListener('click', closingModal));
 
 modalFooterButtons[0].addEventListener('click', () => {
@@ -82,10 +92,4 @@ background.addEventListener('click', (event) => {
         closingModal();
         closingBurger();
     }
-});
-
-signUpButton.addEventListener('click', () => {
-    closingBurger();
-    closingDrop();
-    openingModal(modalRegister);
 });

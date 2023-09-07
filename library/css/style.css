@@ -109,6 +109,31 @@ html {
     filter: none;
 }
 
+.user-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 28px;
+    margin: 20px;
+    background-color: #FFF;
+    border-radius: 50%;
+    color: #BB945F;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    transition: 0.5s;
+    position:relative;
+    z-index: 2;
+}
+
+.user-icon:hover {
+    background-color: #BB945F;
+    color: #000;
+}
+
 .burger-menu-icon {
     display: none;
 }
@@ -231,7 +256,8 @@ html {
 }
 
 .drop-button {
-    margin: 5px;
+    margin: 5px 0;
+    padding: 0;
     height: 20px;
     background: none;
     border: none;

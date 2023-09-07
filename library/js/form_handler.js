@@ -2,6 +2,7 @@ const formRegister = document.forms.register;
 let newUserData = {};
 let activeUser = {};
 
+
 function userDataReceive(form) {
     const data = new FormData(form);
     const userDataTemp = {};
@@ -27,6 +28,22 @@ function userVerification (data) {
     return !(Object.keys(localStorage).includes(data.email));
 }
 
+function userActivation (data) {
+    userIcons.forEach(item => {
+        item.classList.remove('nodisplay');
+        item.innerHTML = data.icon;
+        item.setAttribute('title', data.firstname + ' ' + data.lastname);
+    });
+    profileIcons.forEach(item => {
+        item.classList.add('nodisplay');
+    });
+    dropButtons.forEach(item => {
+        item.classList.toggle('nodisplay')
+    })
+    dropTitle.innerHTML = data.cardNumber;
+    dropTitle.style.fontSize = '12px';
+}
+
 formRegister.addEventListener('submit', (event) => {
     event.preventDefault();
     newUserData = userDataReceive(formRegister);
@@ -36,12 +53,17 @@ formRegister.addEventListener('submit', (event) => {
         } while (Object.keys(localStorage).includes(newUserData.cardNumber));
         newUserData.visits = 1;
         newUserData.books = [];
+        newUserData.icon = newUserData.firstname[0] + newUserData.lastname[0]
         activeUser = Object.assign({}, newUserData);
         localStorage.setItem(newUserData.email, JSON.stringify(newUserData));
         localStorage.setItem(newUserData.cardNumber, newUserData.email);
         newUserData = {};
+        userActivation(activeUser);
+        event.target.reset();
+        closingModal();
     }else{
         alert('This email has already been registered!');
     }
     console.log(newUserData , activeUser);
 })
+localStorage.clear()
