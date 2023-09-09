@@ -19,7 +19,6 @@ function cardNumberGenerator() {
                         .toString(16)
                         .toUpperCase();
         numCard += hexNum;
-        console.log(hexNum)
     }
     return numCard;
 }
@@ -53,10 +52,12 @@ formRegister.addEventListener('submit', (event) => {
         } while (Object.keys(localStorage).includes(newUserData.cardNumber));
         newUserData.visits = 1;
         newUserData.books = [];
+        newUserData.bonus = 100;
         newUserData.icon = newUserData.firstname[0] + newUserData.lastname[0]
         activeUser = Object.assign({}, newUserData);
         localStorage.setItem(newUserData.email, JSON.stringify(newUserData));
         localStorage.setItem(newUserData.cardNumber, newUserData.email);
+        localStorage.setItem('activeUser', newUserData.email);
         newUserData = {};
         userActivation(activeUser);
         event.target.reset();
@@ -64,6 +65,10 @@ formRegister.addEventListener('submit', (event) => {
     }else{
         alert('This email has already been registered!');
     }
-    console.log(newUserData , activeUser);
 })
-localStorage.clear()
+
+dropButtons[3].addEventListener('click', () =>  {
+    localStorage.removeItem('activeUser');
+    location.reload();
+})
+
