@@ -396,17 +396,34 @@
                 </div>
                 <div class="title-line"></div>
                 <div class="card-container">
-                    <div class="card-input-wrap">
+                    <form class="card-input-wrap" method="post" name="libraryCardChecker">
                         <div class="card-input-header">Find your Library card</div>
                         <div class="card-input-border">
                             <div class="card-input-box">
                                 <h3>Brooklyn Public Library</h3>
-                                <input name="readers-name" type="text" placeholder="Reader's name" pattern="^[a-zA-Z]+$">
-                                <input name="cards-number" type="text" placeholder="Card number" pattern="[A-Za-z]">
+                                <input name="name" type="text" placeholder="Reader's name" title="enter your first and last name separated by a space">
+                                <input name="number" type="text" placeholder="Card number" title="enter the nine-digit card number">
                             </div>
-                            <button>Check the card</button>
+                            <button type="submit">Check the card</button>
+                            <div class="library-card-info nodisplay">
+                                <div class="card-info-item">
+                                    <span>Visits</span>
+                                    <img src="./images/Union.svg">
+                                    <span></span>
+                                </div>
+                                <div class="card-info-item">
+                                    <span>Bonuses</span>
+                                    <img src="./images/Star 1.svg">
+                                    <span></span>
+                                </div>
+                                <div class="card-info-item">
+                                    <span>Books</span>
+                                    <img src="./images/book.svg">
+                                    <span></span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="card-login-box">
                         <h3>Get a reader card</h3>
                         <p>You will be able to see a reader card after logging into account or you can register a new account</p>

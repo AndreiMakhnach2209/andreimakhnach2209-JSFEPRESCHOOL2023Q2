@@ -1,6 +1,9 @@
 const formRegister = document.forms.register;
 let newUserData = {};
 let activeUser = {};
+const formCardChecker = document.forms.libraryCardChecker;
+const buttonCardChecker = document.querySelector('.card-input-border button');
+const infoCardChecker = document.querySelector('.library-card-info');
 
 
 function userDataReceive(form) {
@@ -67,8 +70,30 @@ formRegister.addEventListener('submit', (event) => {
     }
 })
 
-dropButtons[3].addEventListener('click', () =>  {
+dropButtons[3].addEventListener('click', () =>  { // button Log Out
     localStorage.removeItem('activeUser');
     location.reload();
 })
 
+formCardChecker.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const number = userDataReceive(formCardChecker).number;
+    const name = userDataReceive(formCardChecker).name;
+    if (localStorage.getItem(number.toUpperCase())) {
+        const email = localStorage.getItem(number.toUpperCase());
+        const userDataTemp = JSON.parse(localStorage.getItem(email));
+        if (name.toLowerCase() === (userDataTemp.firstname + ' ' + userDataTemp.lastname).toLowerCase()) {
+            buttonCardChecker.classList.add('nodisplay')
+            infoCardChecker.classList.remove('nodisplay')
+            setTimeout(() => {
+                buttonCardChecker.classList.remove('nodisplay')
+                infoCardChecker.classList.add('nodisplay')
+                formCardChecker.reset();                
+            }, 10000);
+        }else{
+            alert('invalid card number or user name')
+        }
+    }
+})
+
+// localStorage.clear()
