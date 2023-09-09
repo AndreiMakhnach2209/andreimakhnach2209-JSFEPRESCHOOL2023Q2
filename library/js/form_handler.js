@@ -1,10 +1,10 @@
 const formRegister = document.forms.register;
-let newUserData = {};
 let activeUser = {};
 const formCardChecker = document.forms.libraryCardChecker;
 const buttonCardChecker = document.querySelector('.card-input-border button');
 const infoCardChecker = document.querySelector('.library-card-info');
-
+const valuesCardinfo = document.querySelectorAll('.card-info-item span');
+const formLogin = document.forms.login;
 
 function userDataReceive(form) {
     const data = new FormData(form);
@@ -26,42 +26,24 @@ function cardNumberGenerator() {
     return numCard;
 }
 
-function userVerification (data) {
-    return !(Object.keys(localStorage).includes(data.email));
-}
-
-function userActivation (data) {
-    userIcons.forEach(item => {
-        item.classList.remove('nodisplay');
-        item.innerHTML = data.icon;
-        item.setAttribute('title', data.firstname + ' ' + data.lastname);
-    });
-    profileIcons.forEach(item => {
-        item.classList.add('nodisplay');
-    });
-    dropButtons.forEach(item => {
-        item.classList.toggle('nodisplay')
-    })
-    dropTitle.innerHTML = data.cardNumber;
-    dropTitle.style.fontSize = '12px';
-}
-
 formRegister.addEventListener('submit', (event) => {
     event.preventDefault();
-    newUserData = userDataReceive(formRegister);
+    const newUserData = userDataReceive(formRegister);
     if (userVerification(newUserData)) {
         do {
             newUserData.cardNumber = cardNumberGenerator();
         } while (Object.keys(localStorage).includes(newUserData.cardNumber));
+        newUserData.email = newUserData.email.toLowerCase();
+        newUserData.firstname = newUserData.firstname[0].toUpperCase() + newUserData.firstname.slice(1).toLowerCase();
+        newUserData.lastname = newUserData.lastname[0].toUpperCase() + newUserData.lastname.slice(1).toLowerCase();
         newUserData.visits = 1;
         newUserData.books = [];
-        newUserData.bonus = 100;
-        newUserData.icon = newUserData.firstname[0] + newUserData.lastname[0]
+        newUserData.bonuses = 100;
+        newUserData.icon = newUserData.firstname[0].toUpperCase() + newUserData.lastname[0].toUpperCase();
         activeUser = Object.assign({}, newUserData);
         localStorage.setItem(newUserData.email, JSON.stringify(newUserData));
         localStorage.setItem(newUserData.cardNumber, newUserData.email);
         localStorage.setItem('activeUser', newUserData.email);
-        newUserData = {};
         userActivation(activeUser);
         event.target.reset();
         closingModal();
@@ -83,16 +65,39 @@ formCardChecker.addEventListener('submit', (event) => {
         const email = localStorage.getItem(number.toUpperCase());
         const userDataTemp = JSON.parse(localStorage.getItem(email));
         if (name.toLowerCase() === (userDataTemp.firstname + ' ' + userDataTemp.lastname).toLowerCase()) {
-            buttonCardChecker.classList.add('nodisplay')
-            infoCardChecker.classList.remove('nodisplay')
+            displayingInfoCard(email);
             setTimeout(() => {
                 buttonCardChecker.classList.remove('nodisplay')
                 infoCardChecker.classList.add('nodisplay')
                 formCardChecker.reset();                
             }, 10000);
         }else{
-            alert('invalid card number or user name')
+            alert('invalid card number or user name');
         }
+    }else{
+        alert('invalid card number or user name');
+    }
+})
+
+formLogin.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let login = userDataReceive(formLogin).user_login;
+    const password = userDataReceive(formLogin).password;
+    if (Object.keys(localStorage).includes(login.toUpperCase())) {
+        login = localStorage.getItem(login);
+    }
+    if (Object.keys(localStorage).includes(login.toLowerCase())) {
+        const userDataTemp = JSON.parse(localStorage[login.toLowerCase()]);
+        if (userDataTemp.password === password) {
+            activeUser = Object.assign({}, userDataTemp);
+            userActivation(activeUser);
+            event.target.reset();
+            closingModal();
+        }else{
+            alert('invalid password');
+        }
+    }else{
+        alert('invalid card number or user E-mail');
     }
 })
 
