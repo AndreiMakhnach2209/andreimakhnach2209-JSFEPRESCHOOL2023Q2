@@ -3,8 +3,9 @@ let activeUser = {};
 const formCardChecker = document.forms.libraryCardChecker;
 const buttonCardChecker = document.querySelector('.card-input-border button');
 const infoCardChecker = document.querySelector('.library-card-info');
-const valuesCardinfo = document.querySelectorAll('.card-info-item span');
+const valuesCardinfo = document.querySelectorAll('.card-info-item span:last-child');
 const formLogin = document.forms.login;
+const valuesModalinfo = document.querySelectorAll('.modal-info-item span:last-child');
 
 function userDataReceive(form) {
     const data = new FormData(form);
@@ -24,6 +25,15 @@ function cardNumberGenerator() {
         numCard += hexNum;
     }
     return numCard;
+}
+
+function displayingInfoCard (email) {
+    const userDataTemp = JSON.parse(localStorage.getItem(email));
+    valuesCardinfo[0].innerHTML = userDataTemp.visits;
+    valuesCardinfo[1].innerHTML = userDataTemp.bonuses;
+    valuesCardinfo[2].innerHTML = userDataTemp.books.length;
+    buttonCardChecker.classList.add('nodisplay');
+    infoCardChecker.classList.remove('nodisplay');
 }
 
 formRegister.addEventListener('submit', (event) => {
@@ -53,6 +63,7 @@ formRegister.addEventListener('submit', (event) => {
 })
 
 dropButtons[3].addEventListener('click', () =>  { // button Log Out
+    updatingUserCounters();
     localStorage.removeItem('activeUser');
     location.reload();
 })
@@ -84,13 +95,15 @@ formLogin.addEventListener('submit', (event) => {
     let login = userDataReceive(formLogin).user_login;
     const password = userDataReceive(formLogin).password;
     if (Object.keys(localStorage).includes(login.toUpperCase())) {
-        login = localStorage.getItem(login);
+        login = localStorage.getItem(login.toUpperCase());
     }
     if (Object.keys(localStorage).includes(login.toLowerCase())) {
         const userDataTemp = JSON.parse(localStorage[login.toLowerCase()]);
         if (userDataTemp.password === password) {
             activeUser = Object.assign({}, userDataTemp);
+            localStorage.setItem('activeUser', userDataTemp.email);
             userActivation(activeUser);
+            updatingUserCounters('visits', 1);
             event.target.reset();
             closingModal();
         }else{

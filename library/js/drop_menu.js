@@ -10,6 +10,7 @@ const accountButtonsCard = document.querySelectorAll('.login-btn-row button');
 const userIcons = document.querySelectorAll('.user-icon')
 const buttonsBuy = document.querySelectorAll('.button-buy');
 const dropTitle = document.querySelector('.drop-title');
+const modalMyProfile = document.querySelector('.modal-profile-menu');
 
 function openingDrop() {
     closingBurger();
@@ -76,7 +77,19 @@ function openingLoginForm() {
         closingDrop();
         openingModal(modalRegister);
     });
-})
+});
+
+[dropButtons[2], accountButtonsCard[2]].forEach(item => {
+    item.addEventListener('click', () => {
+        closingBurger();
+        closingDrop();
+        openingModal(modalMyProfile);
+    });
+});
+
+console.log([dropButtons[2], accountButtonsCard[2]])
+
+
 modalCloseButtons.forEach(i => i.addEventListener('click', closingModal));
 
 modalFooterButtons[0].addEventListener('click', () => {

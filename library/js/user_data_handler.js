@@ -2,13 +2,26 @@ function userVerification (data) {
     return !(Object.keys(localStorage).includes(data.email));
 }
 
-function displayingInfoCard (email) {
-    const userDataTemp = JSON.parse(localStorage.getItem(email));
-    valuesCardinfo[1].innerHTML = userDataTemp.visits;
-    valuesCardinfo[3].innerHTML = userDataTemp.bonuses;
-    valuesCardinfo[5].innerHTML = userDataTemp.books.length;
-    buttonCardChecker.classList.add('nodisplay');
-    infoCardChecker.classList.remove('nodisplay');
+function updatingUserCounters(key, value) {
+    switch (key) {
+        case 'visits':
+        case 'bonuses':
+            activeUser[key] += value;    
+            break;
+        case 'books':
+            break
+    
+    }
+    [valuesCardinfo[0], valuesModalinfo[0]].forEach(item => {
+        item.innerHTML = activeUser.visits;
+    });
+    [valuesCardinfo[1], valuesModalinfo[1]].forEach(item => {
+        item.innerHTML = activeUser.bonuses;
+    });
+    [valuesCardinfo[2], valuesModalinfo[2]].forEach(item => {
+        item.innerHTML = activeUser.books.length;
+    });
+    localStorage.setItem(activeUser.email, JSON.stringify(activeUser));
 }
 
 function userActivation (data) {
@@ -25,7 +38,15 @@ function userActivation (data) {
     })
     dropTitle.innerHTML = data.cardNumber;
     dropTitle.style.fontSize = '12px';
-    displayingInfoCard(data.email);
+    updatingUserCounters();
+    buttonCardChecker.classList.add('nodisplay');
+    infoCardChecker.classList.remove('nodisplay');
+    const avatarModal = document.querySelector('.avatar-modal');
+    const nameModal = document.querySelector('.avatar-name-modal');
+    const cardNumberModal = document.querySelector('.card-number-module div');
+    avatarModal.innerHTML = data.icon;
+    nameModal.innerHTML = data.firstname + ' ' + data.lastname;
+    cardNumberModal.innerHTML = data.cardNumber;
     const inputsCard = document.querySelectorAll('.card-input-box input');
     inputsCard[0].setAttribute('value', data.firstname + ' ' + data.lastname);
     inputsCard[1].setAttribute('value', data.cardNumber);
@@ -39,6 +60,3 @@ if (localStorage.getItem('activeUser')) {
     activeUser = JSON.parse(localStorage[localStorage.activeUser]);
     userActivation(activeUser);
 }
-
-
-
