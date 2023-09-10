@@ -54,9 +54,11 @@ function userActivation (data) {
     document.querySelector('.card-login-box h3').innerHTML = 'Visit your profile';
     document.querySelector('.card-login-box p').innerHTML = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
     document.querySelectorAll('.card-login-box button').forEach(item => item.classList.toggle('nodisplay'));
+    
 }
 
 if (localStorage.getItem('activeUser')) {
     activeUser = JSON.parse(localStorage[localStorage.activeUser]);
     userActivation(activeUser);
 }
+

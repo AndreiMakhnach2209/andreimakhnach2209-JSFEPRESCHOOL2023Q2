@@ -6,6 +6,7 @@ const infoCardChecker = document.querySelector('.library-card-info');
 const valuesCardinfo = document.querySelectorAll('.card-info-item span:last-child');
 const formLogin = document.forms.login;
 const valuesModalinfo = document.querySelectorAll('.modal-info-item span:last-child');
+const formBuyCard =document.forms.buy_card;
 
 function userDataReceive(form) {
     const data = new FormData(form);
@@ -100,6 +101,7 @@ formLogin.addEventListener('submit', (event) => {
     if (Object.keys(localStorage).includes(login.toLowerCase())) {
         const userDataTemp = JSON.parse(localStorage[login.toLowerCase()]);
         if (userDataTemp.password === password) {
+            userDataTemp.visits += 1;
             activeUser = Object.assign({}, userDataTemp);
             localStorage.setItem('activeUser', userDataTemp.email);
             userActivation(activeUser);
@@ -112,6 +114,17 @@ formLogin.addEventListener('submit', (event) => {
     }else{
         alert('invalid card number or user E-mail');
     }
+})
+
+modalBuyCard.addEventListener('input', (event) => {
+    modalBuyCard.querySelector('.modal-submit').disabled = !event.target.form.checkValidity();
+});
+
+formBuyCard.addEventListener('submit', (event) => {
+    event.preventDefault();
+    activeUser.card = true;
+    updatingUserCounters('bonuses', 250);
+    closingModal();
 })
 
 // localStorage.clear()

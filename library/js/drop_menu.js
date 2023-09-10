@@ -11,6 +11,8 @@ const userIcons = document.querySelectorAll('.user-icon')
 const buttonsBuy = document.querySelectorAll('.button-buy');
 const dropTitle = document.querySelector('.drop-title');
 const modalMyProfile = document.querySelector('.modal-profile-menu');
+const modalBuyCard = document.querySelector('.modal-buy-card');
+const copyNumberButton = document.querySelector('.card-number-module img');
 
 function openingDrop() {
     closingBurger();
@@ -34,6 +36,8 @@ function closingModal() {
     modalContainer.addEventListener('transitionend', () => {
         modalRegister.classList.add('nodisplay');
         modalLogin.classList.add('nodisplay');
+        modalMyProfile.classList.add('nodisplay');
+        modalBuyCard.classList.add('nodisplay');
     }, {once: true});
     background.classList.remove('shade');
     modalContainer.classList.add('opacity');
@@ -67,9 +71,24 @@ function openingLoginForm() {
     openingModal(modalLogin);
 }
 
-[dropButtons[0], ...buttonsBuy, accountButtonsCard[1]].forEach(item => {
+[dropButtons[0], accountButtonsCard[1]].forEach(item => {
     item.addEventListener('click', openingLoginForm)
 });
+
+buttonsBuy.forEach(item => {
+    item.addEventListener('click', () => {
+        if (activeUser.email) {
+            if (activeUser.card) {
+
+            }else{
+                openingModal(modalBuyCard);
+            }        
+        }else{
+            openingModal(modalLogin);
+        }
+    });
+});
+
 
 [dropButtons[1], accountButtonsCard[0]].forEach(item => {
     item.addEventListener('click', () => {
@@ -86,9 +105,6 @@ function openingLoginForm() {
         openingModal(modalMyProfile);
     });
 });
-
-console.log([dropButtons[2], accountButtonsCard[2]])
-
 
 modalCloseButtons.forEach(i => i.addEventListener('click', closingModal));
 
@@ -109,3 +125,5 @@ background.addEventListener('click', (event) => {
         closingBurger();
     }
 });
+
+copyNumberButton.addEventListener('click', () => navigator.clipboard.writeText(activeUser.cardNumber));

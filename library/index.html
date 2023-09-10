@@ -102,7 +102,7 @@
                     <div class="card-number-module">
                         <span>Card number</span>
                         <div>#########</div>
-                        <img src="./images/icon copy.svg">
+                        <img src="./images/icon copy.svg" title="Click to copy card number">
                     </div>
                 </div>
                 <div class="modal-close-button">
@@ -116,37 +116,37 @@
                     <form class="modal-form" method="post" name="buy_card">
                         <p>
                             <label>Bank card number
-                                <input class="modal-input" type="text" name="bank_number"  pattern="[0-9]{16}">
+                                <input class="modal-input" type="text" name="bank_number"  pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}\s?" required>
                             </label>
                         </p>
                         <p>
                             <label>Expiration code<br>
-                                <input class="modal-input short" type="text" name="exp_pcode_mm"  pattern="[0-9]{2}">
-                                <input class="modal-input short" type="text" name="exp_code_yy"  pattern="[0-9]{2}">
+                                <input class="modal-input short" type="text" name="exp_pcode_mm"  pattern="\d{2}" required>
+                                <input class="modal-input short" type="text" name="exp_code_yy"  pattern="\d{2}" required>
                             </label>
                         </p>
                         <p>
                            <label>CVC<br>
-                                <input class="modal-input short" type="text" name="bank_number"  pattern="[0-9]{3}">
+                                <input class="modal-input short" type="text" name="cvc"  pattern="\d{3}" required>
                             </label>
                         </p>
                         <p class="splitting">
                             <label>Cardholder name
-                                <input class="modal-input" type="text" name="bank_number">
+                                <input class="modal-input" type="text" name="card_holder" required>
                             </label>
                         </p>
                         <p>
                             <label>Postal code
-                                <input class="modal-input" type="text" name="bank_number"  pattern="[0-9]{6}">
+                                <input class="modal-input" type="text" name="postal_code"  pattern="\d{6}" required>
                             </label>
                         </p>
                         <p>
                             <label>City / Town
-                                <input class="modal-input" type="text" name="bank_number">
+                                <input class="modal-input" type="text" name="city" required>
                             </label>
                         </p>
                         <div class="buy-card-submit-box">
-                            <input class="modal-submit" type="submit" value="Buy">
+                            <input class="modal-submit" type="submit" value="Buy" disabled>
                             <span class="price-card">$ 25.00</span>
                         </div>
                     </form>

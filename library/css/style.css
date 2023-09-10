@@ -364,6 +364,12 @@ html {
     height: 20px;
     border-style: none;
     border: 1px solid #BB945F;
+    background-color: #aad1aa;
+
+}
+
+.modal-input:invalid {
+    background-color: transparent;
 }
 
 .modal-submit {
@@ -664,6 +670,10 @@ border: 2px solid #FFF;
     display: flex;
     align-items: end;
     gap: 25px;
+}
+
+.modal-submit:disabled {
+    opacity: 0.2;
 }
 
 p.splitting {
