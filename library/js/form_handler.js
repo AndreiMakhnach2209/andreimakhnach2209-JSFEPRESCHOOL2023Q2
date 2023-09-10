@@ -84,10 +84,10 @@ formCardChecker.addEventListener('submit', (event) => {
                 formCardChecker.reset();                
             }, 10000);
         }else{
-            alert('invalid card number or user name');
+            // alert('invalid card number or user name');
         }
     }else{
-        alert('invalid card number or user name');
+        // alert('invalid card number or user name');
     }
 })
 
