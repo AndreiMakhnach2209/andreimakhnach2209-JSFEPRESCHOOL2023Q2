@@ -148,5 +148,7 @@ let i = 0;
 let timerId = setInterval(() => {
         i = (i < 3) ? i + 1 : 0;
         booksReplacement(Object.keys(favorites)[i]);
-        radioButtons[i].checked = true;
-}, 5000);
+        favoritesContainer.addEventListener('transitionend', () => {
+            radioButtons[i].checked = true;
+        }, {once: true});
+}, 7000);
