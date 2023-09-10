@@ -76,10 +76,17 @@ function openingLoginForm() {
 });
 
 buttonsBuy.forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (event) => {
         if (activeUser.email) {
             if (activeUser.card) {
-
+                let season = '';
+                let index = +event.target.name;
+                radioButtons.forEach(item => {
+                    if (item.checked) {
+                        season = item.id;
+                    }
+                })
+                // console.log(season, index)
             }else{
                 openingModal(modalBuyCard);
             }        
