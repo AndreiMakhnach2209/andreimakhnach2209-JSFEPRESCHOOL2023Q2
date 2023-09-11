@@ -127,6 +127,14 @@ function booksReplacement(season) {
             autors[index].innerHTML = item.autor;
             bookDescriptions[index].innerHTML = item.bookDescription;
             bookImages[index].style.backgroundImage = item.bookImage;
+            buttonsBuy[index].disabled = false;
+            buttonsBuy[index].innerHTML = 'Buy';
+            activeUser.books.forEach(book => {
+                if (book.season === season && book.index === index) {
+                    buttonsBuy[index].innerHTML = 'Own';
+                    buttonsBuy[index].disabled = true;
+                }
+            })
         });
         favoritesContainer.classList.remove('opacity');
     });
