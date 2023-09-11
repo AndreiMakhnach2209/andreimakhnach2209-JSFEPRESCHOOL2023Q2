@@ -9,6 +9,7 @@ function updatingUserCounters(key, value) {
             activeUser[key] += value;    
             break;
         case 'books':
+            activeUser[key].push(value);
             break
     
     }
@@ -21,6 +22,14 @@ function updatingUserCounters(key, value) {
     [valuesCardinfo[2], valuesModalinfo[2]].forEach(item => {
         item.innerHTML = activeUser.books.length;
     });
+    const rentedList = document.querySelector('.rented-books-list');
+    rentedList.innerHTML = '';
+    activeUser.books.forEach((item) => {
+        let rentedBook = document.createElement('li');
+        rentedBook.innerHTML = favorites[item.season][item.index].bookTitle + ', ' + favorites[item.season][item.index].autor.slice(3);
+        rentedList.append(rentedBook);
+    })
+
     localStorage.setItem(activeUser.email, JSON.stringify(activeUser));
 }
 
@@ -62,3 +71,4 @@ if (localStorage.getItem('activeUser')) {
     userActivation(activeUser);
 }
 
+// activeUser.books = []; updatingUserCounters();

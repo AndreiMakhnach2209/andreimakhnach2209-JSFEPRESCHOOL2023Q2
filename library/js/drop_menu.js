@@ -86,7 +86,8 @@ buttonsBuy.forEach(item => {
                         season = item.id;
                     }
                 })
-                // console.log(season, index)
+                buttonsBuy[index].disabled = true;
+                updatingUserCounters('books',{season, index}); 
             }else{
                 openingModal(modalBuyCard);
             }        
