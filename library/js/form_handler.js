@@ -101,7 +101,6 @@ formLogin.addEventListener('submit', (event) => {
     if (Object.keys(localStorage).includes(login.toLowerCase())) {
         const userDataTemp = JSON.parse(localStorage[login.toLowerCase()]);
         if (userDataTemp.password === password) {
-            userDataTemp.visits += 1;
             activeUser = Object.assign({}, userDataTemp);
             localStorage.setItem('activeUser', userDataTemp.email);
             userActivation(activeUser);

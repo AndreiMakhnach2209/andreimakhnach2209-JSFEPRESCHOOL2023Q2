@@ -482,7 +482,7 @@ html {
     flex-direction: column;
     box-sizing: border-box;
     padding: 20px;
-    width: 100%;
+    width: 430px;
     background-color: #FFF;
 }
 
@@ -544,7 +544,7 @@ html {
     margin: 0;
     overflow: auto;
     gap: 10px;
-    scrollbar-width: thin;
+    /* scrollbar-width: thin; */
 }
 
 .rented-books-list li {
@@ -1134,7 +1134,8 @@ p.splitting {
     background: #BB945F;
 }
 
-.button-own {
+.button-buy:disabled {
+    pointer-events: none;
     border-radius: 2px;
     border: 1px solid #BB945F;
     color: #BB945F;
