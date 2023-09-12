@@ -139,7 +139,7 @@ function booksReplacement(season) {
             }
         });
         favoritesContainer.classList.remove('opacity');
-    });
+    }, {once: true});
 }
 
 function seasonSelection(event) {
