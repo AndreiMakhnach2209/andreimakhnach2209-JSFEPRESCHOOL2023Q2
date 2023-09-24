@@ -20,6 +20,7 @@ tracks.forEach((item, index) => {
 })
 
 let audioElements = [];
+let checkedTrack = 0;
 
 function addAudio(indexTrack) {
     audioElements[indexTrack] = document.createElement('audio');
@@ -43,5 +44,9 @@ function pausingTrack(indexTrack) {
 }
 
 buttonPlay.addEventListener('click', () => {
-playingTrack(0)
+    if (audioElements[checkedTrack].paused) {
+        playingTrack(checkedTrack);
+    }else{
+        pausingTrack(checkedTrack);
+    }
 })
