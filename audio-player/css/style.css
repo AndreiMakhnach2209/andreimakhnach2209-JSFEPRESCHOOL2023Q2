@@ -17,9 +17,9 @@ html {
 .body {
     display: flex;
     flex-direction: column;
-    background-image: url(../assets/img/lemonade.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #282828;
     width: 100vw;
     height: 100vh; 
 }
@@ -52,7 +52,12 @@ html {
 }
 
 .image-track {
-    width: 103%;
+    min-width: 105%;
+    transition: 0.5s;
+}
+
+.playing {
+    min-width: 130%;
 }
 
 .control-wrap {
@@ -127,6 +132,13 @@ html {
 
 .duration-time {
     text-align: end;
+    font-size: 13px;
+    color: #c1ff06;
+}
+
+.current-time {
+    font-size: 13px;
+    color: #fff;
 }
 
 .scrollbar input {
