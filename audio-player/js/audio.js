@@ -10,14 +10,17 @@ const trackList = {
     urlImage: [],
 }
 
-const buttonPlay = document.querySelectorAll('.button')[0],
+const numberOfTracks = tracks.length,
+      buttonPlay = document.querySelectorAll('.button')[0],
       imageTrack = document.querySelector('.image-track'),
       background = document.querySelector('.body'),
       trackAutor = document.querySelector('.track-autor'),
       trackTitle = document.querySelector('.track-title'),
       trackDuration = document.querySelector('.duration-time'),
       trackCurrentTime = document.querySelector('.current-time'),
-      scrollbar = document.querySelector('.scrollbar input')
+      scrollbar = document.querySelector('.scrollbar input'),
+      forward = document.querySelector('.forward'),
+      backward = document.querySelector('.backward');
 
 
 tracks.forEach((item, index) => {
@@ -37,20 +40,21 @@ function addAudio(indexTrack) {
 }
 
 for (let i = 0; i < tracks.length; i++) {
-    addAudio(i);
-   
+    addAudio(i);   
 }
 
 function playingTrack(indexTrack) {
     audioElements[indexTrack].play();
     buttonPlay.classList.remove('play');
     buttonPlay.classList.add('pause');
+    imageTrack.classList.add('playing');
 }
 
 function pausingTrack(indexTrack) {
-    audioElements[indexTrack].pause();
     buttonPlay.classList.add ('play');
     buttonPlay.classList.remove ('pause');
+    audioElements[indexTrack].pause();
+    imageTrack.classList.remove('playing');
 }
 
 buttonPlay.addEventListener('click', () => {
@@ -59,7 +63,6 @@ buttonPlay.addEventListener('click', () => {
     }else{
         pausingTrack(checkedTrack);
     }
-    imageTrack.classList.toggle('playing');
 })
 
 function timeSecToMin(timeSec) {
@@ -73,14 +76,50 @@ function displayingTrackData(indexTrack) {
     imageTrack.src = trackList.urlImage[indexTrack];
     trackAutor.innerHTML = trackList.autor[indexTrack];
     trackTitle.innerHTML = trackList.title[indexTrack];
-    audioElements[indexTrack].addEventListener('loadedmetadata', () => {
-        trackDuration.innerHTML = timeSecToMin(audioElements[indexTrack].duration);
-        trackCurrentTime.innerHTML = timeSecToMin(audioElements[indexTrack].currentTime);
-        scrollbar.min = 0;
-        scrollbar.max = audioElements[indexTrack].duration;
-        scrollbar.value = 0;
-    })    
+    trackDuration.innerHTML = timeSecToMin(audioElements[indexTrack].duration);
+    scrollbar.min = 0;
+    scrollbar.max = audioElements[indexTrack].duration;
+    scrollbar.value = 0;
 }
 
-displayingTrackData(0);
-console.log(trackList)
+function updatingScrollbar() {
+    scrollbar.value = audioElements[checkedTrack].currentTime;
+    trackCurrentTime.innerHTML = timeSecToMin(audioElements[checkedTrack].currentTime);
+}
+
+function nextTrack() {
+    pausingTrack(checkedTrack);
+    audioElements[checkedTrack].currentTime = 0;
+    checkedTrack === numberOfTracks - 1 ? checkedTrack = 0 : checkedTrack++;
+    displayingTrackData(checkedTrack);
+    playingTrack(checkedTrack);
+}
+
+function previousTrack() {
+    pausingTrack(checkedTrack);
+    audioElements[checkedTrack].currentTime = 0;
+    checkedTrack === 0 ? checkedTrack = numberOfTracks - 1 : checkedTrack--;
+    displayingTrackData(checkedTrack);
+    playingTrack(checkedTrack);
+}
+
+audioElements[checkedTrack].addEventListener('loadedmetadata', () => {
+displayingTrackData(checkedTrack);
+})
+
+setInterval(() => updatingScrollbar(), 500);
+
+scrollbar.addEventListener('input', (event) =>{
+    audioElements[checkedTrack].currentTime = event.target.value;
+})
+
+audioElements.forEach(item => {
+    item.addEventListener('ended', () => {
+        buttonPlay.classList.add ('play');
+        buttonPlay.classList.remove ('pause');
+        imageTrack.classList.remove('playing');
+    })
+})
+
+forward.addEventListener('click', () => nextTrack());
+backward.addEventListener('click', () => previousTrack());
