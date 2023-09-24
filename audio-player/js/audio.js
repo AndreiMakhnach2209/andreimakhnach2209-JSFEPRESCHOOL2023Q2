@@ -76,13 +76,10 @@ function displayingTrackData(indexTrack) {
     imageTrack.src = trackList.urlImage[indexTrack];
     trackAutor.innerHTML = trackList.autor[indexTrack];
     trackTitle.innerHTML = trackList.title[indexTrack];
-    audioElements[indexTrack].addEventListener('loadedmetadata', () => {
-        trackDuration.innerHTML = timeSecToMin(audioElements[indexTrack].duration);
-        trackCurrentTime.innerHTML = timeSecToMin(audioElements[indexTrack].currentTime);
-        scrollbar.min = 0;
-        scrollbar.max = audioElements[indexTrack].duration;
-        scrollbar.value = 0;
-    })    
+    trackDuration.innerHTML = timeSecToMin(audioElements[indexTrack].duration);
+    scrollbar.min = 0;
+    scrollbar.max = audioElements[indexTrack].duration;
+    scrollbar.value = 0;
 }
 
 function updatingScrollbar() {
@@ -106,7 +103,9 @@ function previousTrack() {
     playingTrack(checkedTrack);
 }
 
+audioElements[checkedTrack].addEventListener('loadedmetadata', () => {
 displayingTrackData(checkedTrack);
+})
 
 setInterval(() => updatingScrollbar(), 500);
 
