@@ -48,9 +48,9 @@ function playingTrack(indexTrack) {
 }
 
 function pausingTrack(indexTrack) {
-    audioElements[indexTrack].pause();
     buttonPlay.classList.add ('play');
     buttonPlay.classList.remove ('pause');
+    audioElements[indexTrack].pause();
 }
 
 buttonPlay.addEventListener('click', () => {
@@ -82,5 +82,19 @@ function displayingTrackData(indexTrack) {
     })    
 }
 
-displayingTrackData(0);
-console.log(trackList)
+function updatingScrollbar() {
+    scrollbar.value = audioElements[checkedTrack].currentTime;
+    trackCurrentTime.innerHTML = timeSecToMin(audioElements[checkedTrack].currentTime);
+}
+
+displayingTrackData(checkedTrack);
+
+setInterval(() => updatingScrollbar(), 500);
+
+scrollbar.addEventListener('input', (event) =>{
+    audioElements[checkedTrack].currentTime = event.target.value;
+})
+
+audioElements[checkedTrack].addEventListener('ended', () => {
+    pausingTrack[checkedTrack];
+})
