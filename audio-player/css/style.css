@@ -166,6 +166,20 @@ html {
     color: #fff;
 }
 
+.volume {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 10%;
+    accent-color: #c1ff06;
+    rotate: -90deg;
+    transition: 1s;
+}
+
+.hidden {
+    opacity: 0;
+}
+
 .footer{
     display: flex;
     justify-content: space-between;
