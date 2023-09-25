@@ -170,7 +170,7 @@ html {
     position: absolute;
     top: 10%;
     left: 10%;
-    width: 10%;
+    width: 20vh;
     accent-color: #c1ff06;
     rotate: -90deg;
     transition: 1s;
