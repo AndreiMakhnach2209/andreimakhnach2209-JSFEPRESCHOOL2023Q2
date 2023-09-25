@@ -128,7 +128,9 @@ backward.addEventListener('click', () => previousTrack());
 
 player.addEventListener('wheel', event => {
     if (!event.ctrlKey) {
-        audioElements[checkedTrack].volume -= event.deltaY/1000;
+        if (audioElements[checkedTrack].volume - event.deltaY/1000 <= 1 && 0 <= audioElements[checkedTrack].volume - event.deltaY/1000) {
+            audioElements[checkedTrack].volume -= event.deltaY/1000
+        }
         volumeInd.value = audioElements[checkedTrack].volume * 10;
         volumeInd.classList.remove('hidden');
         volumeInd.addEventListener('transitionend', () => volumeInd.classList.add('hidden'), {once:true});

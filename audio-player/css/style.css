@@ -173,7 +173,7 @@ html {
     width: 10%;
     accent-color: #c1ff06;
     rotate: -90deg;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .hidden {
