@@ -20,7 +20,9 @@ const numberOfTracks = tracks.length,
       trackCurrentTime = document.querySelector('.current-time'),
       scrollbar = document.querySelector('.scrollbar input'),
       forward = document.querySelector('.forward'),
-      backward = document.querySelector('.backward');
+      backward = document.querySelector('.backward'),
+      player = document.querySelector('.player'),
+      volumeInd = document.querySelector('.volume');
 
 
 tracks.forEach((item, index) => {
@@ -123,3 +125,12 @@ audioElements.forEach(item => {
 
 forward.addEventListener('click', () => nextTrack());
 backward.addEventListener('click', () => previousTrack());
+
+player.addEventListener('wheel', event => {
+    if (!event.ctrlKey) {
+        audioElements[checkedTrack].volume -= event.deltaY/1000;
+        volumeInd.value = audioElements[checkedTrack].volume * 10;
+        volumeInd.classList.remove('hidden');
+        volumeInd.addEventListener('transitionend', () => volumeInd.classList.add('hidden'), {once:true});
+    }
+})
