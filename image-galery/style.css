@@ -1,0 +1,48 @@
+.container {
+}
+
+.header {
+}
+
+.logo {
+}
+
+.searching-box {
+}
+
+.search-input {
+}
+
+.main {
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+    width: 100%;
+    margin-top: auto;
+    background-color: black;
+}
+
+.footer a {
+    height: 100%;
+}
+
+.footer img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.school-link img {
+    filter: invert(1);
+}
+
+.github-link img {
+    filter: grayscale(1);
+}
+
+.footer span {
+    color: white;
+    margin: auto 0;
+}
