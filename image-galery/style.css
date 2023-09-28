@@ -1,17 +1,65 @@
+@font-face {
+    font-family: comfortaa;
+    src: url("./Comfortaa-VariableFont_wght.ttf");    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: comfortaa;
+}
+
 .container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
 }
 
 .header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 80px;
+    border-bottom: 0.2rem solid #ffa500;
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #ffa500;
+}
+
+.logo::before {
+    content: url(./photo_camera_FILL0_wght400_GRAD0_opsz40.svg);
 }
 
 .searching-box {
+    display: flex;
+    height: 80%;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.searching-box::after {
+    content: url(./search_FILL0_wght400_GRAD0_opsz24.svg);
+    z-index: 3;
+    position: relative;
+    right: 15%;
 }
 
 .search-input {
+    height: 100%;
+    width: 120%;
+    flex-shrink: 0;
+    border-radius: 20px;
+    padding: 10px;
 }
+
+
 
 .main {
 }
@@ -36,10 +84,6 @@
 
 .school-link img {
     filter: invert(1);
-}
-
-.github-link img {
-    filter: grayscale(1);
 }
 
 .footer span {
