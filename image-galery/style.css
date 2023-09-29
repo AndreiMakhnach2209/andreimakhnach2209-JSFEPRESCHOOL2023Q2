@@ -61,6 +61,7 @@
     padding: 10px;
     position: relative;
     left: 15%;
+    transition: 0.5s;
 }
 
 .search-input:focus {
@@ -71,6 +72,11 @@
     display: grid;
     grid-auto-columns: auto;
     grid-auto-rows: auto;
+    gap: 15px;
+}
+
+.image {
+    width: 300px;
 }
 
 .footer{
