@@ -18,7 +18,8 @@
 
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 25px;
     align-items: center;
     min-height: 80px;
     border-bottom: 0.2rem solid #ffa500;
@@ -44,24 +45,32 @@
     flex-wrap: nowrap;
 }
 
-.searching-box::after {
+.searching-button {
     content: url(./search_FILL0_wght400_GRAD0_opsz24.svg);
-    z-index: 3;
     position: relative;
-    right: 15%;
+    z-index: 3;
+}
+
+.searching-button:hover {
+    cursor: pointer;
 }
 
 .search-input {
     height: 100%;
-    width: 120%;
-    flex-shrink: 0;
     border-radius: 20px;
     padding: 10px;
+    position: relative;
+    left: 15%;
 }
 
-
+.search-input:focus {
+    box-shadow: #ffa500 0 0 5px 5px;
+}
 
 .main {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
 }
 
 .footer{
@@ -89,4 +98,5 @@
 .footer span {
     color: white;
     margin: auto 0;
+    font-weight: 700;
 }
