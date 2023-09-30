@@ -1,11 +1,16 @@
 
 const startUrl = 'https://api.unsplash.com/photos/random?count=30&client_id=zcuWiNOuGDVa8bs4Jc9a05tF2Sud4KmlPlD3PtyRueg';
 const gallery = document.querySelector('.main');
+const searchInput = document.querySelector('.searching-box');
 
 async function getData(url) {
     const res = await fetch(url);
     const data = await res.json();
-    galleryFilling(data);
+    if (data.results) {
+        galleryFilling(data.results);
+    }else{
+        galleryFilling(data);
+    };
 }
 
 getData(startUrl);
@@ -23,3 +28,21 @@ let galleryFilling = (array) => {
         createImageElement(element.urls.regular);
     });
 }
+
+let queryUrl = (query) => {
+    return `https://api.unsplash.com/search/photos?query=${query}&per_page=30&client_id=zcuWiNOuGDVa8bs4Jc9a05tF2Sud4KmlPlD3PtyRueg`
+}
+
+let deleteImageElement = () => {
+    const images = document.querySelectorAll('.image');
+    images.forEach(element => {
+        element.remove();
+    });
+}
+
+searchInput.addEventListener('submit', (event) => {
+    event.preventDefault();
+    deleteImageElement();
+    getData(queryUrl(event.target[0].value));
+    console.log (event.target[0].value)
+})

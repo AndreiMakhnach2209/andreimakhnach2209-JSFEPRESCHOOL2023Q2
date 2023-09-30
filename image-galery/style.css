@@ -46,7 +46,11 @@
 }
 
 .searching-button {
-    content: url(./search_FILL0_wght400_GRAD0_opsz24.svg);
+    background-image: url(./search_FILL0_wght400_GRAD0_opsz24.svg);
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
     position: relative;
     z-index: 3;
 }
@@ -58,7 +62,7 @@
 .search-input {
     height: 100%;
     border-radius: 20px;
-    padding: 10px;
+    padding: 10px 40px 10px 10px;
     position: relative;
     left: 15%;
     transition: 0.5s;
