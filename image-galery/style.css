@@ -198,4 +198,8 @@
     .image {
         width: 200px;
     }
+
+    .error {
+        font-size: xx-large;
+    }
 }
