@@ -174,3 +174,9 @@
 .close-image div:last-child {
     rotate: -45deg;
 }
+
+@media (max-width: 640px) {
+        .header {
+        flex-direction: column;
+    }
+}
