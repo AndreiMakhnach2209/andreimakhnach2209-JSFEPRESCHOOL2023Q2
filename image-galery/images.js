@@ -11,6 +11,12 @@ async function getData(url) {
     }else{
         galleryFilling(data);
     };
+    const images = document.querySelectorAll('.image');
+    console.log(images);
+    if (!images.length) {
+        alert('Images not found');
+        getData(startUrl);
+    }
 }
 
 getData(startUrl);
@@ -35,6 +41,8 @@ let queryUrl = (query) => {
 
 let deleteImageElement = () => {
     const images = document.querySelectorAll('.image');
+    console.log(images);
+
     images.forEach(element => {
         element.remove();
     });
@@ -44,5 +52,4 @@ searchInput.addEventListener('submit', (event) => {
     event.preventDefault();
     deleteImageElement();
     getData(queryUrl(event.target[0].value));
-    console.log (event.target[0].value)
 })
