@@ -1,5 +1,5 @@
 
-const startUrl = 'https://api.unsplash.com/photos/random?orientation=landscape&count=30&client_id=zcuWiNOuGDVa8bs4Jc9a05tF2Sud4KmlPlD3PtyRueg';
+const startUrl = 'https://api.unsplash.com/photos/random?count=30&client_id=zcuWiNOuGDVa8bs4Jc9a05tF2Sud4KmlPlD3PtyRueg';
 const gallery = document.querySelector('.main');
 
 async function getData(url) {

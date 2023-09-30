@@ -11,8 +11,8 @@
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
+    margin: 0 auto;
+    max-width: 1920px;
     background-color: #000000;
 }
 
@@ -69,14 +69,24 @@
 }
 
 .main {
-    display: grid;
-    grid-auto-columns: auto;
-    grid-auto-rows: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    max-width: 100%;
     gap: 15px;
 }
 
 .image {
     width: 300px;
+    object-fit: cover; aspect-ratio: 4 / 3;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.image:hover {
+    scale: 1.1;
+    box-shadow: #ffa500 0 0 5px 5px;
 }
 
 .footer{
