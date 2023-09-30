@@ -11,8 +11,11 @@
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     max-width: 1920px;
+    min-height: 100vh;
     background-color: #000000;
 }
 
@@ -75,6 +78,8 @@
 .main {
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 0;
     justify-content: center;
     margin: 20px 0;
     max-width: 100%;
@@ -97,6 +102,7 @@
 
 .footer{
     display: flex;
+    flex-shrink: 0;
     justify-content: space-between;
     height: 5vh;
     width: 100%;
@@ -162,6 +168,7 @@
 .close-image div {
     width: 80%;
     border: 2px solid #ffa500;
+    background-color: #ffa500;
     border-radius: 2px;
     position:absolute;
     top: 50%;
@@ -175,8 +182,20 @@
     rotate: -45deg;
 }
 
+.error {
+    font-size: xxx-large;
+    font-weight: 900;
+    text-align: center;
+    color: #ffa500;
+    align-self: center;
+}
+
 @media (max-width: 640px) {
-        .header {
+    .header {
         flex-direction: column;
+    }
+
+    .image {
+        width: 200px;
     }
 }

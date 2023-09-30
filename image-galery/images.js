@@ -5,13 +5,17 @@ const searchInput = document.querySelector('.searching-box');
 const background = document.querySelector('.background');
 
 async function getData(url) {
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.results) {
-        galleryFilling(data.results);
-    }else{
-        galleryFilling(data);
-    };
+    try {
+        const res = await fetch(url);        
+        const data = await res.json();
+        if (data.results) {
+            galleryFilling(data.results);
+        }else{
+            galleryFilling(data);
+        };
+    } catch {
+        createErrorMessage(`Server request error. Try refreshing the page later`);
+    }
 }
 
 let createImageElement = (urlImage) => {
@@ -25,8 +29,7 @@ let createImageElement = (urlImage) => {
 
 let galleryFilling = (array) => {
     if (!array.length) {
-        alert('Images not found');
-        getData(startUrl);
+        createErrorMessage('Images not found');
     }else{
         array.forEach(element => {
             createImageElement(element.urls.regular);
@@ -48,10 +51,9 @@ let deleteImageElement = () => {
 searchInput.addEventListener('submit', (event) => {
     event.preventDefault();
     deleteImageElement();
+    deleteErrorMessage();
     getData(queryUrl(event.target[0].value));
 })
-
-getData(startUrl);
 
 let openingImage = (element) => {
         element.addEventListener('click', (event) => {
@@ -66,3 +68,17 @@ background.addEventListener('click', () => {
     background.classList.add('nodisplay');
     fullImage.classList.remove('full');
 })
+
+let createErrorMessage = (err) => {
+    const error = document.createElement('div');
+    error.textContent = err;
+    error.classList.add('error');
+    gallery.append(error);
+}
+
+let deleteErrorMessage = () => {
+    const error = document.querySelector('.error');
+    if (error) error.remove();
+}
+
+getData(startUrl);
