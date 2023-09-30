@@ -79,11 +79,13 @@
     margin: 20px 0;
     max-width: 100%;
     gap: 15px;
+    transition: 0.5s;
 }
 
 .image {
     width: 300px;
-    object-fit: cover; aspect-ratio: 4 / 3;
+    object-fit: cover; 
+    aspect-ratio: 4 / 3;
     transition: 0.5s;
     border-radius: 5px;
 }
@@ -119,4 +121,56 @@
     color: white;
     margin: auto 0;
     font-weight: 700;
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000c0;
+    z-index: 5;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.full {
+    position: fixed;
+    top: 15vh;
+    width: auto;
+    max-width: 60vw;
+    max-height: 80vh;
+    aspect-ratio: auto;
+    z-index: 6;
+}
+
+.close-image {
+    display: flex;
+    position: absolute;
+    top:5vh;
+    right: 5vw;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.close-image:hover {
+    scale: 1.2;
+}
+
+.close-image div {
+    width: 80%;
+    border: 2px solid #ffa500;
+    border-radius: 2px;
+    position:absolute;
+    top: 50%;
+}
+
+.close-image div:first-child {
+    rotate: 45deg;
+}
+
+.close-image div:last-child {
+    rotate: -45deg;
 }
