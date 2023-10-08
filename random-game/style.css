@@ -39,13 +39,33 @@ color: #fff
 }
 
 .container {
+    position: relative;
     width: min(70vw, 70vh);
     height: min(70vw, 70vh);
     margin: auto 0;
-    background-color: #00000080;
+    background-color: #000000;
     border-radius: 10px;
+    box-shadow: #800000 0 0 20px 0;
 }
 
+.unit {
+    color:#fff;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 25%;
+    border: 1px solid #5e4040;
+    border-radius: 10px;
+    background-color: #ffffff20;
+    box-shadow: #fff 0 0 5px 0 inset;
+    transition: 0.5s;
+}
+
+#u16 {
+    display: none;
+}
 
 
 
