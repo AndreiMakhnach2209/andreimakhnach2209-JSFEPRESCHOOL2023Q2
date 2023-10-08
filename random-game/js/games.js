@@ -109,15 +109,14 @@ function startGame (x) {
                 else i--;
         }
     }
+    units.forEach(item => {
+        item.addEventListener('transitionend', checking);
+    })
     timerId = setInterval(() => {
         timerValue++;
         timer.innerHTML = secToMMSS(timerValue);
     }, 1000);
 }
-
-units.forEach(item => {
-    item.addEventListener('transitionend', checking);
-})
 
 function unitsActivation() {
     if (iEmpty){
@@ -163,6 +162,6 @@ startBtn.addEventListener('click', () => {
     menu.classList.add('opacity');
     menu.addEventListener('transitionend', () => {
         menu.classList.add('no-display');
-        startGame(10);
+        startGame(20);
     })
 })
