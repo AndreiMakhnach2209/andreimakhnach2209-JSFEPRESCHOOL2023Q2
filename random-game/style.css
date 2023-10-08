@@ -75,6 +75,12 @@ body {
     background-color: #ffffff20;
     box-shadow: #fff 0 0 5px 0 inset;
     transition: 0.5s;
+    cursor: default;
+}
+
+.active:hover {
+    box-shadow: #fff 0 0 5px 5px inset;
+    cursor: pointer;
 }
 
 #u16 {
@@ -82,12 +88,13 @@ body {
 }
 
 .unit span {
-    width: 80%;
-    height: 80%;
+    width: min(15vw, 15vh);
+    height: min(15vw, 15vh);
     border-radius: 50%;
+    font-size: min(10vw, 10vh);
     box-shadow: #ffffff50 0 0 15px 0 inset;
     text-align: center;
-    padding: 35%;
+    padding: min(2.5vw, 2.5vh);
 }
 
 

@@ -40,14 +40,21 @@ function shiftUnit(a, b) {
     steps.innerHTML = (stepsValue < 10) ? `Ход:  00${stepsValue}` : (stepsValue < 100) ? `Ход:  0${stepsValue}` : `Ход:  ${stepsValue}`
 }
 
+let shiftUp = () => shiftUnit(-1, 0);
+let shiftDown = () => shiftUnit(1, 0);
+let shiftLeft = () => shiftUnit(0, -1);
+let shiftRigth = () => shiftUnit(0, 1);
+
 function checking() {
     for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
             if (matrix[i][j] !== (i * 4) + j + 1) return;
         }
     }
-    alert('Поздравляем!!!')
     clearInterval(timerId);
+    setTimeout(() => {
+        alert('Поздравляем!!!')
+    }, 500);
     units.forEach(item => {
         item.removeEventListener('transitionend', checking);
     })
@@ -56,16 +63,16 @@ function checking() {
 document.addEventListener('keydown', (event) => {
     switch (event.code) {
         case 'ArrowUp':
-            if (iEmpty < 3) shiftUnit(1, 0);
+            if (iEmpty < 3) shiftDown();
             break;
         case 'ArrowDown':
-            if (iEmpty) shiftUnit(-1, 0);
+            if (iEmpty) shiftUp();
             break;
         case 'ArrowRight':
-            if (jEmpty) shiftUnit(0, -1);
+            if (jEmpty) shiftLeft();
             break;
         case 'ArrowLeft': 
-            if (jEmpty < 3) shiftUnit(0, 1);
+            if (jEmpty < 3) shiftRigth();
     }
 })
 
@@ -86,19 +93,19 @@ function startGame (x) {
         stepsValue = -1;
         switch (r) {
             case 0:
-                if (iEmpty < 3) shiftUnit(1, 0);
+                if (iEmpty < 3) shiftDown();
                 else i--;
                 break;
             case 1:
-                if (iEmpty) shiftUnit(-1, 0);
+                if (iEmpty) shiftUp();
                 else i--;
                 break;
             case 2:
-                if (jEmpty) shiftUnit(0, -1);
+                if (jEmpty) shiftLeft();
                 else i--;
                 break;
             case 3: 
-                if (jEmpty < 3) shiftUnit(0, 1);
+                if (jEmpty < 3) shiftRigth();
                 else i--;
         }
     }
@@ -108,13 +115,47 @@ function startGame (x) {
     }, 1000);
 }
 
-
-
 units.forEach(item => {
     item.addEventListener('transitionend', checking);
 })
 
+function unitsActivation() {
+    if (iEmpty){
+        const topUnit = document.getElementById('u' + matrix[iEmpty - 1][jEmpty]);
+        topUnit.addEventListener('click', shiftUp);
+        topUnit.classList.add('active');
+    }
+    if (iEmpty < 3){
+        const bottomUnit = document.getElementById('u' + matrix[iEmpty + 1][jEmpty]);
+        bottomUnit.addEventListener('click',shiftDown);
+        bottomUnit.classList.add('active');
+    }
+    if (jEmpty){
+        const leftUnit = document.getElementById('u' + matrix[iEmpty][jEmpty - 1]);
+        leftUnit.addEventListener('click', shiftLeft);
+        leftUnit.classList.add('active');
+    }
+    if (jEmpty < 3){
+        const rigthUnit = document.getElementById('u' + matrix[iEmpty][jEmpty + 1]);
+        rigthUnit.addEventListener('click', shiftRigth);
+        rigthUnit.classList.add('active');
+    }
+} 
 
-document.addEventListener('click', () => startGame(10));
+function unitsDeactivation () {
+    document.querySelectorAll('.active').forEach (item => {
+        item.removeEventListener('click', shiftDown);
+        item.removeEventListener('click', shiftUp);
+        item.removeEventListener('click', shiftLeft);
+        item.removeEventListener('click', shiftRigth);
+        item.classList.remove('active');
+    })
+}
 
+playingField.addEventListener('transitionend', () => {
+    unitsDeactivation();
+    unitsActivation();
+});
+
+document.addEventListener('click', () => startGame(10), {once: true});
 
