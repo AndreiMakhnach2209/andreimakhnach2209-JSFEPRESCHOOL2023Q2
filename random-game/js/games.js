@@ -25,6 +25,8 @@ for (let i = 0; i < 4; i++) {
 const units = document.querySelectorAll('.unit');
 let iEmpty = 3;
 let jEmpty = 3;
+let stepsValue = 0;
+const steps = document.querySelector('.score');
 
 function shiftUnit(a, b) {
     const unit = document.getElementById('u' + matrix[iEmpty + a][jEmpty + b]);
@@ -34,6 +36,8 @@ function shiftUnit(a, b) {
     iEmpty = iEmpty + a;
     jEmpty = jEmpty + b;
     matrix[iEmpty][jEmpty] = 16;
+    stepsValue++;
+    steps.innerHTML = (stepsValue < 10) ? `Ход:  00${stepsValue}` : (stepsValue < 100) ? `Ход:  0${stepsValue}` : `Ход:  ${stepsValue}`
 }
 
 function checking() {
@@ -43,6 +47,7 @@ function checking() {
         }
     }
     alert('Поздравляем!!!')
+    clearInterval(timerId);
     units.forEach(item => {
         item.removeEventListener('transitionend', checking);
     })
@@ -65,7 +70,6 @@ document.addEventListener('keydown', (event) => {
 })
 
 const timer = document.querySelector('.timer');
-const steps = document.querySelector('.score');
 let timerValue = 0;
 
 let secToMMSS = (s) => {
@@ -74,10 +78,12 @@ let secToMMSS = (s) => {
     return `Время: ${mm}:${ss}`;
 }
 
+let timerId;
 
 function startGame (x) {
     for (let i = 0; i < x; i++) {
         let r = Math.floor(Math.random() * 4);
+        stepsValue = -1;
         switch (r) {
             case 0:
                 if (iEmpty < 3) shiftUnit(1, 0);
@@ -96,7 +102,7 @@ function startGame (x) {
                 else i--;
         }
     }
-    const timerId = setInterval(() => {
+    timerId = setInterval(() => {
         timerValue++;
         timer.innerHTML = secToMMSS(timerValue);
     }, 1000);

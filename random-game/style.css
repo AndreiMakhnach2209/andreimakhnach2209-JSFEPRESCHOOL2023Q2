@@ -37,6 +37,10 @@ body {
 }
 
 .timer-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
     min-width: 100px;
 }
 .main {
