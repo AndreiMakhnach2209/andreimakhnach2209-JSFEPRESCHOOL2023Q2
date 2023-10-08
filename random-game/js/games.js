@@ -25,5 +25,28 @@ for (let i = 0; i < 4; i++) {
 let iEmpty = 3;
 let jEmpty = 3;
 
-function down() {
+function shiftUnit(a, b) {
+    const unit = document.getElementById('u' + matrix[iEmpty + a][jEmpty + b]);
+    unit.style.top = iEmpty * 25 + '%';
+    unit.style.left = jEmpty * 25 + '%';
+    matrix[iEmpty][jEmpty] = matrix[iEmpty + a][jEmpty + b];
+    iEmpty = iEmpty + a;
+    jEmpty = jEmpty + b;
+    matrix[iEmpty][jEmpty] = 16;
+}
+
+document.addEventListener('keydown', (event) => {
+    switch (event.code) {
+        case 'ArrowUp':
+            if (iEmpty < 3) shiftUnit(1, 0);
+            break;
+        case 'ArrowDown':
+            if (iEmpty) shiftUnit(-1, 0);
+            break;
+        case 'ArrowRight':
+            if (jEmpty) shiftUnit(0, -1);
+            break;
+        case 'ArrowLeft': 
+            if (jEmpty < 3) shiftUnit(0, 1);
     }
+})
