@@ -157,5 +157,12 @@ playingField.addEventListener('transitionend', () => {
     unitsActivation();
 });
 
-document.addEventListener('click', () => startGame(10), {once: true});
-
+const startBtn = document.querySelector('.start');
+const menu = document.querySelector('.background');
+startBtn.addEventListener('click', () => {
+    menu.classList.add('opacity');
+    menu.addEventListener('transitionend', () => {
+        menu.classList.add('no-display');
+        startGame(10);
+    })
+})
