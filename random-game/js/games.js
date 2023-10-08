@@ -22,6 +22,7 @@ for (let i = 0; i < 4; i++) {
     }
 }
 
+const units = document.querySelectorAll('.unit');
 let iEmpty = 3;
 let jEmpty = 3;
 
@@ -33,6 +34,15 @@ function shiftUnit(a, b) {
     iEmpty = iEmpty + a;
     jEmpty = jEmpty + b;
     matrix[iEmpty][jEmpty] = 16;
+}
+
+function checking() {
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            if (matrix[i][j] !== (i * 4) + j + 1) return;
+        }
+    }
+    alert('Поздравляем!!!')
 }
 
 document.addEventListener('keydown', (event) => {
@@ -50,8 +60,6 @@ document.addEventListener('keydown', (event) => {
             if (jEmpty < 3) shiftUnit(0, 1);
     }
 })
-
-const units = document.querySelectorAll('.unit');
 
 function startGame (x) {
     for (let i = 0; i < x; i++) {
@@ -75,4 +83,10 @@ function startGame (x) {
         }
     }
 }
-document.addEventListener('click', () => startGame(100))
+
+
+document.addEventListener('click', () => startGame(10));
+
+units.forEach(item => {
+    item.addEventListener('transitionend', () => checking());
+})
