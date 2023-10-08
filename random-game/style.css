@@ -20,16 +20,25 @@ body {
 }
 
 .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     margin: 2vh;
     padding: 1vh;
     border-radius: 10px;
     background-color: #00000080;
 }
 
-.game-title {
-color: #fff
+.game-title,
+.timer, 
+.score {
+    text-align: center;
+    color: #fff;
 }
 
+.timer-wrap {
+    min-width: 100px;
+}
 .main {
     min-width: 100%;
     display: flex;

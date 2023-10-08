@@ -43,6 +43,9 @@ function checking() {
         }
     }
     alert('Поздравляем!!!')
+    units.forEach(item => {
+        item.removeEventListener('transitionend', checking);
+    })
 }
 
 document.addEventListener('keydown', (event) => {
@@ -61,32 +64,51 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
+const timer = document.querySelector('.timer');
+const steps = document.querySelector('.score');
+let timerValue = 0;
+
+let secToMMSS = (s) => {
+    const mm = Math.floor(s / 60).toString();
+    const ss = ((s % 60) < 10) ? '0'+ (s % 60) : (s % 60).toString();
+    return `Время: ${mm}:${ss}`;
+}
+
+
 function startGame (x) {
     for (let i = 0; i < x; i++) {
         let r = Math.floor(Math.random() * 4);
         switch (r) {
             case 0:
                 if (iEmpty < 3) shiftUnit(1, 0);
-                else i = i--;
+                else i--;
                 break;
             case 1:
                 if (iEmpty) shiftUnit(-1, 0);
-                else i = i--;
+                else i--;
                 break;
             case 2:
                 if (jEmpty) shiftUnit(0, -1);
-                else i = i--;
+                else i--;
                 break;
             case 3: 
                 if (jEmpty < 3) shiftUnit(0, 1);
-                else i = i--;
+                else i--;
         }
     }
+    const timerId = setInterval(() => {
+        timerValue++;
+        timer.innerHTML = secToMMSS(timerValue);
+    }, 1000);
 }
+
+
+
+units.forEach(item => {
+    item.addEventListener('transitionend', checking);
+})
 
 
 document.addEventListener('click', () => startGame(10));
 
-units.forEach(item => {
-    item.addEventListener('transitionend', () => checking());
-})
+
