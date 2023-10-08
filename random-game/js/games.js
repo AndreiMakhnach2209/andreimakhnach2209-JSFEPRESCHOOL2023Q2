@@ -50,3 +50,29 @@ document.addEventListener('keydown', (event) => {
             if (jEmpty < 3) shiftUnit(0, 1);
     }
 })
+
+const units = document.querySelectorAll('.unit');
+
+function startGame (x) {
+    for (let i = 0; i < x; i++) {
+        let r = Math.floor(Math.random() * 4);
+        switch (r) {
+            case 0:
+                if (iEmpty < 3) shiftUnit(1, 0);
+                else i = i--;
+                break;
+            case 1:
+                if (iEmpty) shiftUnit(-1, 0);
+                else i = i--;
+                break;
+            case 2:
+                if (jEmpty) shiftUnit(0, -1);
+                else i = i--;
+                break;
+            case 3: 
+                if (jEmpty < 3) shiftUnit(0, 1);
+                else i = i--;
+        }
+    }
+}
+document.addEventListener('click', () => startGame(100))
