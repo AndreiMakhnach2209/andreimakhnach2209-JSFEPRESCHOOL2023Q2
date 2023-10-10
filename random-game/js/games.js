@@ -52,6 +52,7 @@ function checking() {
         }
     }
     clearInterval(timerId);
+    updateScoreTable();
     setTimeout(() => {
         alert('Поздравляем!!!')
     }, 500);
@@ -165,3 +166,39 @@ startBtn.addEventListener('click', () => {
         startGame(20);
     })
 })
+
+let nameUser;
+const inputName = document.querySelector('.user-name');
+
+inputName.addEventListener('input', (event) => {
+    nameUser = event.target.value;
+})
+
+const level = 'weryEasy';
+
+function updateScoreTable () {
+    let timeTable = new Object;
+    let scoreTable = new Object;
+
+    //timeTable = {level : [{pos : [user, time]} ... ]}
+    if (!nameUser) nameUser = 'Аноним'
+    if (localStorage.getItem('time')) {
+        timeTable = JSON.parse(localStorage.getItem('time'));
+        scoreTable = JSON.parse(localStorage.getItem('score'));
+    }    
+    if (!timeTable[level]) {
+        timeTable[level] = [[nameUser, timerValue]];
+        scoreTable[level] = [[nameUser, stepsValue]];
+    }else{
+        timeTable[level].push([nameUser, timerValue]);
+        scoreTable[level].push([nameUser, stepsValue]);
+        timeTable[level].sort((a, b) => a[1] - b[1]);
+        scoreTable[level].sort((a, b) => a[1] - b[1]);
+        timeTable[level].length = 10;
+        scoreTable[level].length = 10;
+    }
+    localStorage.setItem('time', JSON.stringify(timeTable));
+    localStorage.setItem('score', JSON.stringify(scoreTable));
+}
+
+// localStorage.clear();
