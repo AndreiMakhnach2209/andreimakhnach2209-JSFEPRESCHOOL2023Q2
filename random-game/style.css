@@ -134,7 +134,53 @@ body {
     justify-content: space-between;
 }
 
+.score-table {
+    position: absolute;
+    z-index: 4;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    background-color: #5e4040;
+    box-shadow: #800000 0 0 20px 0;
+    border-radius: 10px;
+    color: #fff;
+    transition: 0.5s;
+    font-size: 2.5vh;
+}
 
+.score-title::before {
+    content: '<<=';
+    margin: 5%
+}
+.score-title::after {
+    content: '=>>';
+    margin: 5%;
+}
+
+.score-title {
+    text-align: center;
+    font-size: 3vh;
+    margin: 2%;
+}
+
+.score-list-box {
+    display: flex;
+}
+
+.score-list {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.score-list p {
+    margin: 1% 2%;
+}
+
+.score-list-title {
+    font-weight: 700;
+    font-size: 3vh;
+    margin: 5%;
+}
 
 .header {
     width: 100%;

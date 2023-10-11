@@ -83,7 +83,7 @@ let timerValue = 0;
 let secToMMSS = (s) => {
     const mm = Math.floor(s / 60).toString();
     const ss = ((s % 60) < 10) ? '0'+ (s % 60) : (s % 60).toString();
-    return `Время: ${mm}:${ss}`;
+    return `${mm}:${ss}`;
 }
 
 let timerId;
@@ -115,7 +115,7 @@ function startGame (x) {
     })
     timerId = setInterval(() => {
         timerValue++;
-        timer.innerHTML = secToMMSS(timerValue);
+        timer.innerHTML = 'Время : ' + secToMMSS(timerValue);
     }, 1000);
 }
 
@@ -163,15 +163,25 @@ startBtn.addEventListener('click', () => {
     menu.classList.add('opacity');
     menu.addEventListener('transitionend', () => {
         menu.classList.add('no-display');
-        startGame(20);
+        startGame(10);
     })
+})
+
+menu.addEventListener('keydown', (event) => {
+    console.log(event.code)
 })
 
 let nameUser;
 const inputName = document.querySelector('.user-name');
 
 inputName.addEventListener('input', (event) => {
-    nameUser = event.target.value;
+    if (event.code === 'Enter') {
+        menu.classList.add('opacity');
+        menu.addEventListener('transitionend', () => {
+            menu.classList.add('no-display');
+            startGame(10);
+        })
+    }
 })
 
 const level = 'weryEasy';
@@ -201,4 +211,53 @@ function updateScoreTable () {
     localStorage.setItem('score', JSON.stringify(scoreTable));
 }
 
+const scoreBtn = document.querySelector('.score-link');
+const recordTable = document.querySelector('.score-table');
+const recordsLevel = document.querySelector('.score-title');
+const recordsLists = document.querySelectorAll('.score-list');
+const recordsListBox = document.querySelector('score-list-box');
+
+function createRecordScore (i) {
+    const scoreItem = document.createElement('span');
+    scoreItem.classList.add('score-item');
+    recordsLists[0].append(scoreItem);
+    scoreItem.innerHTML = `<p>${i} : ${scoreTable[level][i][0]} -- ${scoreTable[level][i][1]}</p>`;
+}
+function createRecordTime (i) {
+    const scoreItem = document.createElement('span');
+    scoreItem.classList.add('score-item');
+    recordsLists[1].append(scoreItem);
+    scoreItem.innerHTML = `<p>${i} : ${timeTable[level][i][0]} -- ${secToMMSS(timeTable[level][i][1])}</p>`;
+}
+
+function openRecords(lev) {
+    switch (lev) {
+        case 'weryEasy' : recordsLevel.innerHTML = 'Очень легкий';
+        break;
+        case 'easy' : recordsLevel.innerHTML = 'Легкий';
+        break;
+        case 'normal' : recordsLevel.innerHTML = 'Нормальный';
+        break;
+        case 'hard' : recordsLevel.innerHTML = 'Сложный';
+        break;
+    }
+    if (localStorage.getItem('time')) {
+        timeTable = JSON.parse(localStorage.getItem('time'));
+        scoreTable = JSON.parse(localStorage.getItem('score'));
+        for (let i = 1; i <= 10; i++) {
+            if (timeTable[level][i]) {
+                createRecordScore(i);
+                createRecordTime(i);
+            }
+        }
+    }else{
+        recordsListBox.innerHTML = 'Нет результатов'
+    }
+    recordTable.classList.remove('no-display');
+    recordTable.classList.remove('opacity');
+}
+
+scoreBtn.addEventListener('click', () => {
+    openRecords(level);
+})
 // localStorage.clear();
