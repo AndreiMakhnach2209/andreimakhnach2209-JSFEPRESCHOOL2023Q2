@@ -159,29 +159,26 @@ playingField.addEventListener('transitionend', () => {
 
 const startBtn = document.querySelector('.start');
 const menu = document.querySelector('.background');
+
 startBtn.addEventListener('click', () => {
     menu.classList.add('opacity');
-    menu.addEventListener('transitionend', () => {
-        menu.classList.add('no-display');
-        startGame(10);
-    })
+    menu.classList.add('no-display');
+    startGame(10);
 })
 
 menu.addEventListener('keydown', (event) => {
-    console.log(event.code)
+    if (event.code === 'Enter') {
+        menu.classList.add('opacity');
+        menu.classList.add('no-display');
+        startGame(10);
+    }
 })
 
 let nameUser;
 const inputName = document.querySelector('.user-name');
 
 inputName.addEventListener('input', (event) => {
-    if (event.code === 'Enter') {
-        menu.classList.add('opacity');
-        menu.addEventListener('transitionend', () => {
-            menu.classList.add('no-display');
-            startGame(10);
-        })
-    }
+    nameUser = event.target.value;
 })
 
 const level = 'weryEasy';
@@ -204,8 +201,6 @@ function updateScoreTable () {
         scoreTable[level].push([nameUser, stepsValue]);
         timeTable[level].sort((a, b) => a[1] - b[1]);
         scoreTable[level].sort((a, b) => a[1] - b[1]);
-        timeTable[level].length = 10;
-        scoreTable[level].length = 10;
     }
     localStorage.setItem('time', JSON.stringify(timeTable));
     localStorage.setItem('score', JSON.stringify(scoreTable));
@@ -221,17 +216,17 @@ function createRecordScore (i) {
     const scoreItem = document.createElement('span');
     scoreItem.classList.add('score-item');
     recordsLists[0].append(scoreItem);
-    scoreItem.innerHTML = `<p>${i} : ${scoreTable[level][i][0]} -- ${scoreTable[level][i][1]}</p>`;
+    scoreItem.innerHTML = `<p>${i + 1} : ${scoreTable[level][i][0]} -- ${scoreTable[level][i][1]}</p>`;
 }
 function createRecordTime (i) {
     const scoreItem = document.createElement('span');
     scoreItem.classList.add('score-item');
     recordsLists[1].append(scoreItem);
-    scoreItem.innerHTML = `<p>${i} : ${timeTable[level][i][0]} -- ${secToMMSS(timeTable[level][i][1])}</p>`;
+    scoreItem.innerHTML = `<p>${i + 1} : ${timeTable[level][i][0]} -- ${secToMMSS(timeTable[level][i][1])}</p>`;
 }
 
 function openRecords(lev) {
-    switch (lev) {
+        switch (lev) {
         case 'weryEasy' : recordsLevel.innerHTML = 'Очень легкий';
         break;
         case 'easy' : recordsLevel.innerHTML = 'Легкий';
@@ -241,23 +236,38 @@ function openRecords(lev) {
         case 'hard' : recordsLevel.innerHTML = 'Сложный';
         break;
     }
+    const scoreItems = document.querySelectorAll('.score-item');
+    scoreItems.forEach(item => item.remove());
+
     if (localStorage.getItem('time')) {
         timeTable = JSON.parse(localStorage.getItem('time'));
         scoreTable = JSON.parse(localStorage.getItem('score'));
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 0; i < 10; i++) {
             if (timeTable[level][i]) {
                 createRecordScore(i);
                 createRecordTime(i);
             }
         }
     }else{
-        recordsListBox.innerHTML = 'Нет результатов'
+        const noRes = document.createElement('div');
+        noRes.classList.add('score-item', 'result');
+        noRes.innerHTML = 'Нет результатов предыдущих игр'
+        recordTable.append(noRes);
     }
     recordTable.classList.remove('no-display');
     recordTable.classList.remove('opacity');
+};
+
+function closeRecords () {
+    recordTable.classList.add('opacity');
+    recordTable.classList.add('no-display');
+    const scoreItems = document.querySelectorAll('.score-item');
+    scoreItems.forEach(item => item.remove());
 }
 
 scoreBtn.addEventListener('click', () => {
     openRecords(level);
 })
+
+menu.addEventListener('click', closeRecords, true);
 // localStorage.clear();

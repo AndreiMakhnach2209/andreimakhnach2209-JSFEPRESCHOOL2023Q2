@@ -76,7 +76,7 @@ body {
 }
 
 .no-display {
-    display: none;
+    visibility: hidden;
 }
 
 .user-name {
@@ -97,7 +97,7 @@ body {
 .menu label, 
 .score-link {
     color: #fff;
-    font-size: 24px;
+    font-size: 2.5vh;
 }
 
 .score-link {
@@ -136,6 +136,8 @@ body {
 
 .score-table {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     z-index: 4;
     width: 70%;
     height: 70%;
@@ -168,18 +170,23 @@ body {
 }
 
 .score-list {
-    text-align: center;
     flex-grow: 1;
-}
-
-.score-list p {
-    margin: 1% 2%;
+    flex-basis: 100%;
+    padding-left: 5%;
 }
 
 .score-list-title {
     font-weight: 700;
     font-size: 3vh;
-    margin: 5%;
+    margin: 5% 0;
+}
+
+
+.result {
+    font-size: 4vh;
+    text-align: center;
+    margin: auto;
+    padding: 3%;
 }
 
 .header {
