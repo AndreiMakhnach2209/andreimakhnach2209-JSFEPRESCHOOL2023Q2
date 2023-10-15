@@ -88,7 +88,18 @@ let secToMMSS = (s) => {
 
 let timerId;
 
-function startGame (x) {
+function startGame () {
+    let x = 0;
+    switch (level) {
+        case 'weryEasy' : x = 10;
+        break;
+        case 'easy' : x = 50;
+        break;
+        case 'normal' : x = 100;
+        break;
+        case 'hard' : x = 1000;
+        break;
+    }
     for (let i = 0; i < x; i++) {
         let r = Math.floor(Math.random() * 4);
         stepsValue = -1;
@@ -163,14 +174,14 @@ const menu = document.querySelector('.background');
 startBtn.addEventListener('click', () => {
     menu.classList.add('opacity');
     menu.classList.add('no-display');
-    startGame(10);
+    startGame();
 })
 
 menu.addEventListener('keydown', (event) => {
     if (event.code === 'Enter') {
         menu.classList.add('opacity');
         menu.classList.add('no-display');
-        startGame(10);
+        startGame();
     }
 })
 
@@ -181,7 +192,6 @@ inputName.addEventListener('input', (event) => {
     nameUser = event.target.value;
 })
 
-const level = 'weryEasy';
 
 function updateScoreTable () {
     let timeTable = new Object;
@@ -242,11 +252,18 @@ function openRecords(lev) {
     if (localStorage.getItem('time')) {
         timeTable = JSON.parse(localStorage.getItem('time'));
         scoreTable = JSON.parse(localStorage.getItem('score'));
-        for (let i = 0; i < 10; i++) {
-            if (timeTable[level][i]) {
-                createRecordScore(i);
-                createRecordTime(i);
+        if (timeTable[level]) {
+            for (let i = 0; i < 10; i++) {
+                if (timeTable[level][i]) {
+                    createRecordScore(i);
+                    createRecordTime(i);
+                }
             }
+        }else{
+            const noRes = document.createElement('div');
+            noRes.classList.add('score-item', 'result');
+            noRes.innerHTML = 'Нет результатов предыдущих игр'
+            recordTable.append(noRes);
         }
     }else{
         const noRes = document.createElement('div');
@@ -270,4 +287,25 @@ scoreBtn.addEventListener('click', () => {
 })
 
 menu.addEventListener('click', closeRecords, true);
+
+const levels = ['weryEasy', 'easy', 'normal', 'hard'];
+let levelIn = 0,
+    level = levels[levelIn];
+
+
+const scoreBackBtn = document.querySelector('.score-back'),
+      scoreForwBtn = document.querySelector('.score-forward');
+
+scoreBackBtn.addEventListener('click', () => {
+    levelIn = (levelIn > 0) ? levelIn - 1 : 3;
+    level = levels[levelIn];
+    openRecords(level);
+})
+
+scoreForwBtn.addEventListener('click', () => {
+    levelIn = (levelIn < 3) ? levelIn + 1 : 0;
+    level = levels[levelIn];
+    openRecords(level);
+})
+
 // localStorage.clear();
