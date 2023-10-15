@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game "15"</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./assets/icon/favicon.png">
+</head>
+<body>
+    <div class="background">
+        <div class="menu-wrap">
+            <div class="menu">
+                <label for="user-name"> Имя игрока: </label>
+                <input class="user-name" type="text" name="user-name" placeholder="Аноним" title="Введите ваше имя" id="user-name" autofocus autocomplete="off">
+                <span class="score-link"> Лучшие игроки </span>
+            </div>
+            <div class="menu-box">
+                <div class="radio-box"></div>
+                <div class="radio-box"></div>
+                <div class="radio-box"></div>
+            </div>
+            <button class="start">Начать игру</button>
+        </div>
+    </div>
+    <div class="score-table no-display opacity">
+        <div class="score-title-wrap">
+            <h3 class="score-title"></h3>
+        </div>
+        <div class="score-list-box">
+            <div class="score-list">
+                <p class="score-list-title">Количество ходов</p>
+            </div>
+            <div class="score-list">
+                <p class="score-list-title">Лучшее время</p>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <h1 class="game-title">Игра "Пятнашки"</h1>
+        <div class="timer-wrap">
+            <span class="timer">Время: 0:00</span>
+            <span class="score">Ход: 000</span>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container"></div>
+    </main>
+    <footer class="footer">
+        <a class="github-link" href="https://github.com/AndreiMakhnach2209">
+            <img src="./assets/icon/githublink.png" alt="Github link">
+        </a>
+        <span class="year-footer">2023</span>
+        <a class="school-link" href="https://rs.school/js/" target="_blank">
+            <img src="https://rs.school/images/rs_school_js.svg" alt="RSSchool JS">
+        </a>
+    </footer>
+</body>
+<script src="./js/games.js"></script>
+</html>
