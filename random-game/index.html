@@ -11,14 +11,41 @@
     <div class="background">
         <div class="menu-wrap">
             <div class="menu">
-                <label for="user-name"> Имя игрока: </label>
+                <label for="user-name" class="user-name-label"> Имя игрока: </label>
                 <input class="user-name" type="text" name="user-name" placeholder="Аноним" title="Введите ваше имя" id="user-name" autofocus autocomplete="off">
                 <span class="score-link"> Лучшие игроки </span>
-            </div>
-            <div class="menu-box">
-                <div class="radio-box"></div>
-                <div class="radio-box"></div>
-                <div class="radio-box"></div>
+                <div class="menu-box">
+                    <div class="radio-box">
+                        <h3 class="level-title">Уровень сложности</h3>
+                        <label class="radio-label">
+                            <input class="radio-level" type="radio" name="level" checked>
+                            Очень легкий
+                        </label>
+                        <label class="radio-label">
+                            <input class="radio-level" type="radio" name="level">
+                            Легкий
+                        </label>
+                        <label class="radio-label">
+                            <input class="radio-level" type="radio" name="level">
+                            Нормальный
+                        </label>
+                        <label class="radio-label">
+                            <input class="radio-level" type="radio" name="level">
+                            Сложный
+                        </label>
+                    </div>
+                    <div class="radio-box">
+                        <h3 class="sound-title">Звук</h3>
+                        <label class="radio-label">
+                            <input class="radio-sound" type="radio" name="sound" checked>
+                            Включен
+                        </label>
+                        <label class="radio-label">
+                            <input class="radio-sound" type="radio" name="sound">
+                            Выключен
+                        </label>
+                    </div>
+                </div>
             </div>
             <button class="start">Начать игру</button>
         </div>
