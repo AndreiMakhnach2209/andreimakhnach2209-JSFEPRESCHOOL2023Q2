@@ -187,13 +187,22 @@ body {
     font-size: 2.5vh;
 }
 
-.score-title::before {
-    content: '<<=';
+.score-title-wrap {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.score-back {
     margin: 5%
 }
-.score-title::after {
-    content: '=>>';
+.score-forward {
     margin: 5%;
+}
+
+.score-back:hover,
+.score-forward:hover {
+    box-shadow: #800000 0 0 20px 10px;
+    background-color: #800000;
 }
 
 .score-title {
