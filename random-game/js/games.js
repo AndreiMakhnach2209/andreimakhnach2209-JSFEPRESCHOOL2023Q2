@@ -56,7 +56,7 @@ function checking() {
     audio.src = './assets/sound/466133__humanoide9000__victory-fanfare.wav';
     sound();
     setTimeout(() => {
-        alert('Поздравляем!!!')
+        alert(`Поздравляем,  ${nameUser}!\nВремя: ${secToMMSS(timerValue)} \nКоличество ходов: ${stepsValue}`)
         location.reload();
     }, 500);
     units.forEach(item => {
