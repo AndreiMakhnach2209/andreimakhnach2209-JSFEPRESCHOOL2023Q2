@@ -300,12 +300,23 @@ scoreBackBtn.addEventListener('click', () => {
     levelIn = (levelIn > 0) ? levelIn - 1 : 3;
     level = levels[levelIn];
     openRecords(level);
+    levelBtns[levelIn].checked = true;
 })
 
 scoreForwBtn.addEventListener('click', () => {
     levelIn = (levelIn < 3) ? levelIn + 1 : 0;
     level = levels[levelIn];
     openRecords(level);
+    levelBtns[levelIn].checked = true;
 })
 
+const levelBtns = document.querySelectorAll('.radio-level'),
+      soundBtns = document.querySelectorAll('.radio-sound');
+
+levelBtns.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        level = levels[index];
+        console.log(level);
+    })
+})
 // localStorage.clear();
