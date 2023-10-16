@@ -53,12 +53,16 @@ function checking() {
     }
     clearInterval(timerId);
     updateScoreTable();
+    audio.src = './assets/sound/466133__humanoide9000__victory-fanfare.wav';
+    sound();
     setTimeout(() => {
         alert('Поздравляем!!!')
+        location.reload();
     }, 500);
     units.forEach(item => {
         item.removeEventListener('transitionend', checking);
     })
+    
 }
 
 document.addEventListener('keydown', (event) => {
@@ -75,6 +79,7 @@ document.addEventListener('keydown', (event) => {
         case 'ArrowLeft': 
             if (jEmpty < 3) shiftRigth();
     }
+    sound();
 })
 
 const timer = document.querySelector('.timer');
@@ -128,6 +133,7 @@ function startGame () {
         timerValue++;
         timer.innerHTML = 'Время : ' + secToMMSS(timerValue);
     }, 1000);
+    sound();
 }
 
 function unitsActivation() {
@@ -190,6 +196,7 @@ const inputName = document.querySelector('.user-name');
 
 inputName.addEventListener('input', (event) => {
     nameUser = event.target.value;
+    sound();
 })
 
 
@@ -273,6 +280,7 @@ function openRecords(lev) {
     }
     recordTable.classList.remove('no-display');
     recordTable.classList.remove('opacity');
+    sound();
 };
 
 function closeRecords () {
@@ -280,6 +288,7 @@ function closeRecords () {
     recordTable.classList.add('no-display');
     const scoreItems = document.querySelectorAll('.score-item');
     scoreItems.forEach(item => item.remove());
+    sound();
 }
 
 scoreBtn.addEventListener('click', () => {
@@ -316,7 +325,23 @@ const levelBtns = document.querySelectorAll('.radio-level'),
 levelBtns.forEach((item, index) => {
     item.addEventListener('click', () => {
         level = levels[index];
-        console.log(level);
     })
 })
+
+let isSound = true;
+
+soundBtns.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        isSound = !index;
+        sound();
+    })
+})
+
+const audio = document.createElement('audio');
+audio.src = './assets/sound/686557__thewilliamsounds__button_click.mp3';
+
+function sound() {
+    if (isSound) audio.play();
+}
+
 // localStorage.clear();
